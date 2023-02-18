@@ -1,4 +1,4 @@
-import account_icon from "../../img/account-icon.svg";
+import account_icon from "../../img/account-icon.jpg";
 import publications from "../../img/personal_information/Posts.svg";
 import subscribers from "../../img/personal_information/Followers.svg";
 import subscription from "../../img/personal_information/user plus.svg";

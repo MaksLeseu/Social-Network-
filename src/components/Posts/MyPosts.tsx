@@ -1,5 +1,5 @@
 import React from "react";
-import account_icon from "../../img/account-icon.svg";
+import account_icon from "../../img/account-icon.jpg";
 import './Posts.css'
 
 export function MyPosts(props: any) {

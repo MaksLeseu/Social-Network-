@@ -1,7 +1,7 @@
 import logo from "../../img/logo.svg";
 import notification from "../../img/notification.svg";
 import Vector from "../../img/vector.svg";
-import account_icon from "../../img/account-icon.svg";
+import account_icon from "../../img/account-icon.jpg";
 import Stroke from "../../img/Stroke.svg";
 import React from "react";
 import './Header.css'
