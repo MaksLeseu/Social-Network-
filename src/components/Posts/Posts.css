@@ -5,7 +5,29 @@
     border-radius: 20px;
     border: 1px #B2EAEE solid;
     padding-top: 24px;
+    padding-left: 24px;
 }
 .posts p {
     text-align: center;
+}
+
+.my-posts {
+    margin-bottom: 15px;
+}
+.my-posts span {
+    font-size: 14px;
+    font-weight: 500;
+}
+.my-posts__box {
+    display: flex;
+    margin-bottom: 5px;
+}
+.my-posts__box p {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+.my-posts__image {
+    margin-right: 10px;
 }
