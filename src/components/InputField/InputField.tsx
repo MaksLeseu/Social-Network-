@@ -4,8 +4,8 @@ import './InputField.css'
 
 export function InputField() {
     return (
-        <form className={''}>
-            <input type={'text'} placeholder={'Anything new?'} className={'input-field'} />
+        <form className={'input-field'}>
+            <textarea placeholder={'Anything new?'} name={'text'} className={'input-field__text'}></textarea>
         </form>
     )
 }

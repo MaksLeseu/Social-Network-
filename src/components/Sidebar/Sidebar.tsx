@@ -14,34 +14,34 @@ export function Sidebar() {
     return (
         <div className={'sidebar'}>
             <div className={'sidebar__menu'}>
-                <div className={'sidebar__menu-home-page sidebar__menu-list'}>
+                <a href={'#'} className={'sidebar__menu-home-page sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={user}/>
                     <p>Home page</p>
-                </div>
-                <div className={'sidebar__menu-news sidebar__menu-list'}>
+                </a>
+                <a href={'#'} className={'sidebar__menu-news sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={news}/>
                     <p>News</p>
-                </div>
-                <div className={'sidebar__menu-acquaintance sidebar__menu-list'}>
+                </a>
+                <a href={'#'} className={'sidebar__menu-acquaintance sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={acquaintance}/>
                     <p>Acquaintance</p>
-                </div>
-                <div className={'sidebar__menu-messages sidebar__menu-list'}>
+                </a>
+                <a href={'#'} className={'sidebar__menu-messages sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={messages}/>
                     <p>Messages</p>
-                </div>
-                <div className={'sidebar__menu-settings sidebar__menu-list'}>
+                </a>
+                <a href={'#'} className={'sidebar__menu-settings sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={settings}/>
                     <p>Settings</p>
-                </div>
-                <div className={'sidebar__menu-developers sidebar__menu-list'}>
+                </a>
+                <a href={'#'} className={'sidebar__menu-developers sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={developers}/>
                     <p>Developers</p>
-                </div>
-                <div className={'sidebar__menu-technologies sidebar__menu-list'}>
+                </a>
+                <a href={'#'} className={'sidebar__menu-technologies sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={technologies}/>
                     <p>Technologies</p>
-                </div>
+                </a>
             </div>
             <div className={'advertising'}>
                 <h3>Advertising</h3>
