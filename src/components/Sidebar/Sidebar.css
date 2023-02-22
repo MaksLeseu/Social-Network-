@@ -9,6 +9,10 @@
 .sidebar__menu {
     margin: 14px 24px 58px 24px;
 }
+.sidebar__menu a.active {
+    background-color: #B2EAEE;
+    border-radius: 20px;
+}
 
 .sidebar__menu-list {
     display: flex;
