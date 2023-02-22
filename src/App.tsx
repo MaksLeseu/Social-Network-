@@ -6,6 +6,7 @@ import {PersonalInformation} from "./components/PersonalInformation/PersonalInfo
 import {InputField} from "./components/InputField/InputField";
 import {Posts} from "./components/Posts/Posts";
 import {SidebarRight} from "./components/SidebarRight/SidebarRight";
+import {Messages} from "./components/Messages/Messages";
 
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
         <div className={'container'}>
             <Sidebar />
             <div className={'content'}>
-                <PersonalInformation />
+                {/*<PersonalInformation />
                 <InputField />
-                <Posts />
+                <Posts />*/}
+                <Messages />
             </div>
             <SidebarRight />
         </div>

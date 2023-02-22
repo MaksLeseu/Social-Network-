@@ -1,4 +1,4 @@
-import logo from "../../img/logo.svg";
+import logo from "../../img/logo5.png";
 import notification from "../../img/notification.svg";
 import Vector from "../../img/vector.svg";
 import account_icon from "../../img/account-icon.jpg";
