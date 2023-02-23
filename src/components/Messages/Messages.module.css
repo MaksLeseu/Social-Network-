@@ -73,12 +73,29 @@
 
 .dialogs__dialog {
     margin-bottom: 24px;
+    display: block;
 }
+.dialogs__dialog:hover {
+    background-color: #E0EAFF;
+    border-radius: 10px;
+    height: 52px;
+    border: 1px solid #92B1ED;
+}
+.dialogs__dialog a.active {
+    background-color: #E0EAFF;
+    border-radius: 10px;
+    height: 52px;
+    border: 1px solid #92B1ED;
+}
+
 .dialogs__dialog span {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    padding-left: 10px;
+    color: black;
+    padding-top: 10px;
 }
 
 .dialog__icon {
@@ -88,6 +105,31 @@
     display: inline-block;
 }
 .dialog__icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+
+
+.user__block span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 10px;
+    color: black;
+    padding-top: 10px;
+}
+
+.user__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.user__block img {
     width: 100%;
     height: 100%;
     border-radius: 50%;

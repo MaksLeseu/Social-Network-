@@ -1,6 +1,7 @@
 import React from "react";
 import s from './Messages.module.css'
 import logo1 from '../../img/logo1.png'
+import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 
 
 export function Messages() {
@@ -9,27 +10,27 @@ export function Messages() {
             <div className={s.messages__dialogs}>
                 <h3>Dialogs</h3>
                 <input className={s.dialogs__search}></input>
-                <div className={s.dialogs__dialog}>
+                <NavLink to={'/messages/1'} className={s.dialogs__dialog}>
                     <div className={s.dialog__icon}><img src={logo1}/></div>
                     <span>Kathy Pacheco</span>
-                </div>
-                <div className={s.dialogs__dialog}>
+                </NavLink>
+                <NavLink to={'/messages/2'} className={s.dialogs__dialog}>
                     <div className={s.dialog__icon}><img src={logo1}/></div>
                     <span>Alex Petrov</span>
-                </div>
-                <div className={s.dialogs__dialog}>
+                </NavLink>
+                <NavLink to={'/messages/3'} className={s.dialogs__dialog}>
                     <div className={s.dialog__icon}><img src={logo1}/></div>
                     <span>Alex Buckmaster</span>
-                </div>
-                <div className={s.dialogs__dialog}>
+                </NavLink>
+                <NavLink to={'/messages/4'} className={s.dialogs__dialog}>
                     <div className={s.dialog__icon}><img src={logo1}/></div>
                     <span>Nika Rodriges</span>
-                </div>
+                </NavLink>
             </div>
             <div className={s.messages__chat}>
                 <div className={s.chat__user}>
-                    <div className={s.dialogs__dialog}>
-                        <div className={s.dialog__icon}><img src={logo1}/></div>
+                    <div className={s.user__block}>
+                        <div className={s.user__icon}><img src={logo1}/></div>
                         <span>Kathy Pacheco</span>
                     </div>
                 </div>
