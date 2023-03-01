@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './Messages.module.css'
 import logo1 from '../../img/logo1.png'
 import {NavLink} from "react-router-dom";
@@ -34,16 +34,30 @@ function Chat(props: ChatType) {
 }
 
 export function Messages() {
+
+    const dialogsData = [
+        {id: '1', name: 'Nik Filman'},
+        {id: '2', name: 'Mich Filman'},
+        {id: '3', name: 'Vera Filmana'},
+        {id: '4', name: 'Vik Prigozin'},
+    ];
+
+    const usersMessage = [
+        {id: '1', message: 'Hi brother!'},
+        {id: '2', message: 'Ready to take your writing skills.'},
+        {id: '3', message: 'А есть что-то другое.'},
+    ];
+
     return (
         <div className={s.messages}>
             <div className={s.messages__dialogs}>
                 <h3>Dialogs</h3>
                 <input className={s.dialogs__search}></input>
                 <>
-                    <Dialog userName={'Nik Filman'} id={'1'} />
-                    <Dialog userName={'Mich Filman'} id={'2'} />
-                    <Dialog userName={'Vera Filmana'} id={'3'} />
-                    <Dialog userName={'Vik Prigozin'} id={'4'} />
+                    <Dialog userName={dialogsData[0].name} id={dialogsData[0].id} />
+                    <Dialog userName={dialogsData[1].name} id={dialogsData[1].id} />
+                    <Dialog userName={dialogsData[2].name} id={dialogsData[2].id} />
+                    <Dialog userName={dialogsData[3].name} id={dialogsData[3].id} />
                 </>
             </div>
             <div className={s.messages__chat}>
@@ -54,9 +68,9 @@ export function Messages() {
                     </div>
                 </div>
                 <div className={s.chat__text}>
-                    <Chat text={'Hi brother!'}/>
-                    <Chat text={'Ready to take your writing skills.'}/>
-                    <Chat text={'А есть что-то другое.'}/>
+                    <Chat text={usersMessage[0].message}/>
+                    <Chat text={usersMessage[1].message}/>
+                    <Chat text={usersMessage[2].message}/>
                 </div>
             </div>
         </div>
