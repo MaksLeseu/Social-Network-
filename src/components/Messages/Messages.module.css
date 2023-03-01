@@ -76,10 +76,9 @@
     display: block;
 }
 .dialogs__dialog:hover {
-    /*background-color: #E0EAFF;
+    background-color: #E0EAFF;
     border-radius: 10px;
-    height: 52px;
-    border: 1px solid #92B1ED;*/
+    border: 1px solid #92B1ED;
 }
 .dialogs__dialog a.active {
     background-color: #E0EAFF;
@@ -95,7 +94,7 @@
     line-height: 20px;
     padding-left: 10px;
     color: black;
-    padding-top: 10px;
+
 }
 
 .dialog__icon {

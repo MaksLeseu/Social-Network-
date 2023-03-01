@@ -13,7 +13,7 @@ import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
 
 
-function App() {
+function App(props: any) {
     return (
         <BrowserRouter>
             <Header/>
@@ -22,7 +22,7 @@ function App() {
                 <div className={'wrapper'}>
                     <Routes>
                         <Route path={'/content'} element={<Content />}/>
-                        <Route path={'/messages'} element={<Messages />}/>
+                        <Route path={'/messages'} element={<Messages dialogsElement={props.dialogsElement} usersMessagesElement={props.usersMessagesElement} />}/>
                         <Route path={'/news'} element={<News />}/>
                         <Route path={'/acquaintance'} element={<Acquaintance />}/>
                         <Route path={'/settings'} element={<Settings />}/>

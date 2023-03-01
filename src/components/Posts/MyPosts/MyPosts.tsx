@@ -1,6 +1,6 @@
 import React from "react";
-import account_icon from "../../img/account-icon.jpg";
-import './Posts.css'
+import account_icon from "../../../img/account-icon.jpg";
+import '../Posts.css'
 
 export function MyPosts(props: any) {
     return (
