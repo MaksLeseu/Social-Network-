@@ -21,8 +21,8 @@ function App(props: any) {
                 <Sidebar/>
                 <div className={'wrapper'}>
                     <Routes>
-                        <Route path={'/content'} element={<Content />}/>
-                        <Route path={'/messages'} element={<Messages dialogsElement={props.dialogsElement} usersMessagesElement={props.usersMessagesElement} />}/>
+                        <Route path={'/content'} element={<Content state={props.state} />}/>
+                        <Route path={'/messages'} element={<Messages state={props.state} />}/>
                         <Route path={'/news'} element={<News />}/>
                         <Route path={'/acquaintance'} element={<Acquaintance />}/>
                         <Route path={'/settings'} element={<Settings />}/>
