@@ -13,7 +13,7 @@ export function MessagesItem(props: MessagesItemPropsType) {
             <div className={s.chat__user}>
                 <div className={s.user__block}>
                     <div className={s.user__icon}><img src={logo1}/></div>
-                    <span>Nik Filman</span>
+                    <span>Vik Prigozin</span>
                 </div>
             </div>
             <div className={s.chat__text}>

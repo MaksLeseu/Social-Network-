@@ -1,8 +1,37 @@
-.sidebar-right__favorites {
+.sidebar-right {
     width: 278px;
     height: 302px;
     background-color: #edf4ff;
     border-radius: 20px;
     border: 1px #B2EAEE solid;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-right__favorites {
+    padding: 21px 24px 21px 24px;
+}
+
+.sidebar-right__favorites__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 24px;
+}
+
+.favorites {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.favorites__img {
+    margin-right: 12px;
+}
+
+.favorites__name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
 }

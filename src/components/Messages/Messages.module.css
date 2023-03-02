@@ -45,7 +45,7 @@
 .block__text {
     margin-bottom: 30px;
 }
-.text {
+.text_my {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -56,6 +56,23 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-color: #FFDAB9;
+    color: black;
+}
+
+.block_friend {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.text_friend {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    padding: 8px;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     background-color: #3677ec;
     color: #FFF7F7;
 }

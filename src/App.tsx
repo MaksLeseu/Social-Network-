@@ -30,7 +30,7 @@ function App(props: any) {
                         <Route path={'/technologies'} element={<Technologies />}/>
                     </Routes>
                 </div>
-                <SidebarRight/>
+                <SidebarRight state={props.state}/>
             </div>
         </BrowserRouter>
     );
