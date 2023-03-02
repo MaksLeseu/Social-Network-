@@ -2,7 +2,7 @@
   "name": "social-network",
   "version": "0.1.0",
   "private": true,
-  "homepage": " https://maksleseu.github.io/Social-Network-/",
+  "homepage": "https://maksleseu.github.io/social-network/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
