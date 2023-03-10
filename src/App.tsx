@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {Sidebar} from "./components/Sidebar/Sidebar";
@@ -11,9 +11,11 @@ import {Acquaintance} from "./components/Acquaintance/Acquaintance";
 import {Settings} from "./components/Settings/Settings";
 import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
+import {addPost} from "./Redux/state";
 
 
 function App(props: any) {
+
     return (
         <BrowserRouter>
             <Header/>
@@ -21,7 +23,7 @@ function App(props: any) {
                 <Sidebar/>
                 <div className={'wrapper'}>
                     <Routes>
-                        <Route path={'/content'} element={<Content state={props.state} />}/>
+                        <Route path={'/content'} element={<Content state={props.state} addPost={addPost} />}/>
                         <Route path={'/messages'} element={<Messages state={props.state} />}/>
                         <Route path={'/news'} element={<News />}/>
                         <Route path={'/acquaintance'} element={<Acquaintance />}/>

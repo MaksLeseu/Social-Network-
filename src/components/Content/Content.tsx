@@ -9,6 +9,7 @@ export type ElementPostsDataType = {
     id: string
     message: string
     level: number
+    addPost: (postMessage: string) => void
 }
 
 export function Content(props: any) {
@@ -18,7 +19,7 @@ export function Content(props: any) {
     return (
         <div className={'profile'}>
             <PersonalInformation />
-            <InputField />
+            <InputField addPost={props.addPost} />
             <Posts postsElements={postsElements} />
         </div>
     )
