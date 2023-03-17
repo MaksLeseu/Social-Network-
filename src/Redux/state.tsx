@@ -1,4 +1,5 @@
 import React from "react";
+import {rerenderEntireTree} from "../render";
 
 let state = {
     content: {
@@ -35,6 +36,7 @@ let state = {
 
 export const addPost = (postMessage: string) => {
     state.content.postsData.push({id: '10', message: postMessage, level: 0});
+    rerenderEntireTree(state);
 }
 
 export default state;
