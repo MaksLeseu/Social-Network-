@@ -10,15 +10,31 @@ export function MessagesItem(props: MessagesItemPropsType) {
 
     return (
         <>
-            <div className={s.chat__user}>
-                <div className={s.user__block}>
-                    <div className={s.user__icon}><img src={logo1}/></div>
+            <div className={s.chatUser}>
+                <div className={s.userBlock}>
+                    <div className={s.userIcon}><img src={logo1}/></div>
                     <span>Vik Prigozin</span>
                 </div>
             </div>
-            <div className={s.chat__text}>
+            <div className={s.chatBlock}>
                 {props.usersMessagesElement}
+            </div>
+            <div className={s.chatForm}>
+                <input className={s.chatInput} />
+                <button className={s.chatButton}>{'>'}</button>
             </div>
         </>
     )
 }
+
+/*
+.messages__chat {
+    width: 304px;
+    height: 700px;
+    background-color: #edf4ff;
+    border-right: 2px #B2EAEE solid;
+    border-top: 2px #B2EAEE solid;
+    border-bottom: 2px #B2EAEE solid;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}*/

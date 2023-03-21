@@ -14,7 +14,7 @@ import {NavLink} from "react-router-dom";
 export function Sidebar() {
     return (
         <div className={'sidebar'}>
-            <div className={'sidebar__menu'}>
+            <div className={'sidebarMenu'}>
                 <NavLink to={'/content'} className={'sidebar__menu-home-page sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={user}/>
                     <p>Home page</p>

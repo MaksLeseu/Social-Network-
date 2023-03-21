@@ -19,9 +19,9 @@ function App(props: any) {
     return (
         <BrowserRouter>
             <Header/>
-            <div className={'container'}>
+            <main className={'container'}>
                 <Sidebar/>
-                <div className={'wrapper'}>
+                <div className={'content-wrapper'}>
                     <Routes>
                         <Route path={'/content'} element={<Content state={props.state} addPost={addPost} />}/>
                         <Route path={'/messages'} element={<Messages state={props.state} />}/>
@@ -33,7 +33,7 @@ function App(props: any) {
                     </Routes>
                 </div>
                 <SidebarRight state={props.state}/>
-            </div>
+            </main>
         </BrowserRouter>
     );
 }

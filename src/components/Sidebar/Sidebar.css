@@ -1,15 +1,16 @@
 .sidebar {
-    width: 278px;
-    height: 100%;
+    flex: 0 0 278px;
     background-color: #edf4ff;
     border-radius: 20px;
     border: 2px #B2EAEE solid;
+    padding: 14px 24px 160px 24px;
+    margin-right: 24px;
 }
 
-.sidebar__menu {
-    margin: 14px 24px 58px 24px;
+.sidebarMenu {
+    margin-bottom: 58px;
 }
-.sidebar__menu a.active {
+.sidebarMenu a.active {
     background-color: #B2EAEE;
     border-radius: 20px;
 }
@@ -38,9 +39,6 @@
 }
 
 .advertising {
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 160px;
 }
 .advertising h3 {
     font-style: normal;
