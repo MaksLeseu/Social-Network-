@@ -5,6 +5,7 @@ import {Dialogs} from "./Dialogs/Dialogs";
 import {Dialog} from "./Dialogs/Dialog";
 import {Chat} from "./MessagesItem/Chat";
 import {MyPosts} from "../Posts/MyPosts/MyPosts";
+import {addMessage} from "../../Redux/state";
 
 type DialogsDataElementsPropsType = {
     id: string
@@ -28,7 +29,7 @@ export function Messages(props: any) {
                 <Dialogs dialogsElement={dialogsElement} />
             </div>
             <div className={s.messages__chat}>
-                <MessagesItem usersMessagesElement={usersMessagesElement} />
+                <MessagesItem usersMessagesElement={usersMessagesElement} addMessage={props.addMessage}/>
             </div>
         </div>
     )

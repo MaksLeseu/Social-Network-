@@ -1,12 +1,25 @@
-import React from "react";
+import React, {ChangeEvent, useState} from "react";
 import s from "../Messages.module.css";
 import logo1 from "../../../img/logo1.png";
+import {addMessage} from "../../../Redux/state";
 
 type MessagesItemPropsType = {
     usersMessagesElement: any
+    addMessage: (message: string) => void
 }
 
 export function MessagesItem(props: MessagesItemPropsType) {
+
+    const [valueInput, setValueInput] = useState('')
+
+    const getValueInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setValueInput(e.currentTarget.value)
+    }
+
+    const testButton = () => {
+        props.addMessage(valueInput)
+        setValueInput('')
+    }
 
     return (
         <>
@@ -20,8 +33,12 @@ export function MessagesItem(props: MessagesItemPropsType) {
                 {props.usersMessagesElement}
             </div>
             <div className={s.chatForm}>
-                <input className={s.chatInput} />
-                <button className={s.chatButton}>{'>'}</button>
+                <input
+                    onChange={getValueInput}
+                    className={s.chatInput}
+                    value={valueInput}
+                />
+                <button onClick={testButton} className={s.chatButton}>{'>'}</button>
             </div>
         </>
     )

@@ -39,4 +39,9 @@ export const addPost = (postMessage: string) => {
     rerenderEntireTree(state);
 }
 
+export const addMessage = (message: string) => {
+    state.messages.usersMessage.push({id: '5', message: message})
+    rerenderEntireTree(state)
+}
+
 export default state;
