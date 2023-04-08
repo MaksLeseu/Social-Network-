@@ -1,7 +1,46 @@
 import React from "react";
-import {rerenderEntireTree} from "../render";
 
-let state = {
+type PostsDataType = {
+    id: string
+    message: string
+    level: number
+}
+type UsersMessageType = {
+    id: string
+    message: string
+}
+type DialogsDataType = {
+    id: string
+    name: string
+}
+type FavoritesType = {
+    id: string
+    personName: string
+}
+
+type ContentType = {
+    postsData: PostsDataType[]
+}
+type MessagesType = {
+    usersMessage: UsersMessageType[]
+    dialogsData: DialogsDataType[]
+}
+type SidebarRightType = {
+    favorites: FavoritesType[]
+}
+
+type RootStateType = {
+    content: ContentType
+    messages: MessagesType
+    sidebarRight: SidebarRightType
+}
+
+
+let rerenderEntireTree = (state: any) => {
+    console.log('Change')
+}
+
+let state: RootStateType = {
     content: {
         postsData: [
             {id: '1', message: 'Hi, my name is.', level: 1},
@@ -36,12 +75,16 @@ let state = {
 
 export const addPost = (postMessage: string) => {
     state.content.postsData.push({id: '10', message: postMessage, level: 0});
-    rerenderEntireTree(state);
+    rerenderEntireTree(state)
 }
 
 export const addMessage = (message: string) => {
     state.messages.usersMessage.push({id: '5', message: message})
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: any) => {
+    rerenderEntireTree = observer
 }
 
 export default state;
