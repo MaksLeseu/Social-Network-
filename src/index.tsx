@@ -1,5 +1,5 @@
 import React from 'react';
-import state, {subscribe} from "./Redux/state";
+import state, {RootStateType, subscribe} from "./Redux/state";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 
-const rerenderEntireTree = (state: any) => {
+const rerenderEntireTree = (state: RootStateType) => {
     const root = ReactDOM.createRoot(
         document.getElementById('root') as HTMLElement
     );

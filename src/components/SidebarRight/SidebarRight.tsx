@@ -1,13 +1,18 @@
-import React from "react";
+import React, {FC} from "react";
 import './SidebarRight.css'
 import {Favorites} from "./Favorites/Favorites";
+import {RootStateType} from "../../Redux/state";
+
+type SidebarRightPropsType = {
+    state: RootStateType
+}
 
 type favoritesElementType = {
     id: string
     personName: string
 }
 
-export function SidebarRight(props: any) {
+export const SidebarRight: FC<SidebarRightPropsType> = (props) => {
 
     let favoritesElement = props.state.sidebarRight.favorites.map((el: favoritesElementType) => <Favorites personName={el.personName} /> )
 

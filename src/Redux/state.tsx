@@ -29,14 +29,14 @@ type SidebarRightType = {
     favorites: FavoritesType[]
 }
 
-type RootStateType = {
+export type RootStateType = {
     content: ContentType
     messages: MessagesType
     sidebarRight: SidebarRightType
 }
 
 
-let rerenderEntireTree = (state: any) => {
+let rerenderEntireTree = (state: RootStateType) => {
     console.log('Change')
 }
 
@@ -83,7 +83,7 @@ export const addMessage = (message: string) => {
     rerenderEntireTree(state)
 }
 
-export const subscribe = (observer: any) => {
+export const subscribe = (observer: (state: RootStateType) => void) => {
     rerenderEntireTree = observer
 }
 

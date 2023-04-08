@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, FC, useState} from "react";
 import s from "../Messages.module.css";
 import logo1 from "../../../img/logo1.png";
 import {addMessage} from "../../../Redux/state";
@@ -8,7 +8,7 @@ type MessagesItemPropsType = {
     addMessage: (message: string) => void
 }
 
-export function MessagesItem(props: MessagesItemPropsType) {
+export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
 
     const [valueInput, setValueInput] = useState('')
 
@@ -43,15 +43,3 @@ export function MessagesItem(props: MessagesItemPropsType) {
         </>
     )
 }
-
-/*
-.messages__chat {
-    width: 304px;
-    height: 700px;
-    background-color: #edf4ff;
-    border-right: 2px #B2EAEE solid;
-    border-top: 2px #B2EAEE solid;
-    border-bottom: 2px #B2EAEE solid;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}*/

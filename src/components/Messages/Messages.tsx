@@ -1,13 +1,18 @@
-import React, {useState} from "react";
+import React, {FC, useState} from "react";
 import s from './Messages.module.css'
 import {MessagesItem} from "./MessagesItem/MessagesItem";
 import {Dialogs} from "./Dialogs/Dialogs";
 import {Dialog} from "./Dialogs/Dialog";
 import {Chat} from "./MessagesItem/Chat";
 import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {addMessage} from "../../Redux/state";
+import {addMessage, RootStateType} from "../../Redux/state";
 
-type DialogsDataElementsPropsType = {
+type MessagesPropsType = {
+    state: RootStateType
+    addMessage: (message: string) => void
+}
+
+export type DialogsDataElementsPropsType = {
     id: string
     name: string
 }
@@ -17,7 +22,7 @@ type UsersMessagesElementType = {
     message: string
 }
 
-export function Messages(props: any) {
+export const Messages: FC<MessagesPropsType> = (props) => {
 
     let dialogsElement = props.state.messages.dialogsData.map((el: DialogsDataElementsPropsType) => <Dialog userName={el.name} id={el.id} /> );
 

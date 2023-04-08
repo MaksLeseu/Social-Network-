@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import s from "../Messages.module.css";
 
 type DialogsPropsType = {
@@ -6,7 +6,7 @@ type DialogsPropsType = {
 }
 
 
-export function Dialogs(props: DialogsPropsType) {
+export const Dialogs: FC<DialogsPropsType> = (props) => {
 
     return (
         <>

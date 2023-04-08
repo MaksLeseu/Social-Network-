@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {Sidebar} from "./components/Sidebar/Sidebar";
@@ -11,10 +11,13 @@ import {Acquaintance} from "./components/Acquaintance/Acquaintance";
 import {Settings} from "./components/Settings/Settings";
 import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
-import {addMessage, addPost} from "./Redux/state";
+import {addMessage, addPost, RootStateType} from "./Redux/state";
 
+type AppPropsType = {
+    state: RootStateType
+}
 
-function App(props: any) {
+const App: FC<AppPropsType> = (props) => {
 
     return (
         <BrowserRouter>

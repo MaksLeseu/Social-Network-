@@ -1,8 +1,11 @@
-import React from "react";
+import React, {FC} from "react";
 import './Posts.css'
 
+type PostsPropsType = {
+    postsElements: any
+}
 
-export function Posts(props: any) {
+export const Posts: FC<PostsPropsType> = (props) => {
 
     return (
         <div className={'posts'}>

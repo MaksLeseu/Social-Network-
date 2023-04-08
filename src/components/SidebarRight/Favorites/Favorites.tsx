@@ -1,10 +1,13 @@
-import React from "react";
+import React, {FC} from "react";
 import '../SidebarRight.css'
 import icon1 from '../../../img/sidebarRight/Favorites1.svg'
 import icon_mail from '../../../img/icon_mail.svg'
 
+type FavoritesPropsType = {
+    personName: string
+}
 
-export function Favorites(props: any) {
+export const Favorites: FC<FavoritesPropsType> = (props) => {
     return (
         <div className={'favorites'}>
             <div className={'favorites__icon'}>

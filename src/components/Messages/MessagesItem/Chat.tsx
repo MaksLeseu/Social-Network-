@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import s from "../Messages.module.css";
 
 
@@ -7,7 +7,7 @@ type ChatType = {
     id: string
 }
 
-export function Chat(props: ChatType) {
+export const Chat: FC<ChatType> = (props) => {
 
     function filteredMessages() {
         if (props.id === '2' || props.id === '3') {
