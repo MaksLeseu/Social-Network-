@@ -27,7 +27,6 @@ export const Messages: FC<MessagesPropsType> = (props) => {
     let dialogsElement = props.state.messages.dialogsData.map((el: DialogsDataElementsPropsType) => <Dialog userName={el.name} id={el.id} /> );
 
     let usersMessagesElement = props.state.messages.usersMessage.map((el: UsersMessagesElementType) => <Chat text={el.message} id={el.id}/> )
-
     return (
         <div className={s.messages}>
             <div className={s.messages__dialogs}>
