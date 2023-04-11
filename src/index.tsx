@@ -1,5 +1,5 @@
 import React from 'react';
-import state, {RootStateType, subscribe} from "./Redux/state";
+import store, {StoreType} from "./Redux/state";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,13 +7,13 @@ import reportWebVitals from './reportWebVitals';
 
 
 
-const rerenderEntireTree = (state: RootStateType) => {
+const rerenderEntireTree = (store: StoreType) => {
     const root = ReactDOM.createRoot(
         document.getElementById('root') as HTMLElement
     );
     root.render(
         <React.StrictMode>
-            <App state={state} />
+            <App store={store} addPost={store.addPost.bind(store)} addMessage={store.addMessage.bind(store)} />
         </React.StrictMode>
     );
 
@@ -23,8 +23,8 @@ const rerenderEntireTree = (state: RootStateType) => {
     reportWebVitals();
 }
 
-rerenderEntireTree(state);
+rerenderEntireTree(store);
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 

@@ -1,7 +1,6 @@
 import React, {ChangeEvent, FC, useState} from "react";
 import s from "../Messages.module.css";
 import logo1 from "../../../img/logo1.png";
-import {addMessage} from "../../../Redux/state";
 
 type MessagesItemPropsType = {
     usersMessagesElement: any

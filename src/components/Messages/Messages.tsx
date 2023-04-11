@@ -5,7 +5,7 @@ import {Dialogs} from "./Dialogs/Dialogs";
 import {Dialog} from "./Dialogs/Dialog";
 import {Chat} from "./MessagesItem/Chat";
 import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {addMessage, RootStateType} from "../../Redux/state";
+import {RootStateType} from "../../Redux/state";
 
 type MessagesPropsType = {
     state: RootStateType

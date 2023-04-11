@@ -11,10 +11,12 @@ import {Acquaintance} from "./components/Acquaintance/Acquaintance";
 import {Settings} from "./components/Settings/Settings";
 import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
-import {addMessage, addPost, RootStateType} from "./Redux/state";
+import {StoreType} from "./Redux/state";
 
 type AppPropsType = {
-    state: RootStateType
+    store: StoreType
+    addPost: (postMessage: string) => void
+    addMessage: (message: string) => void
 }
 
 const App: FC<AppPropsType> = (props) => {
@@ -26,8 +28,8 @@ const App: FC<AppPropsType> = (props) => {
                 <Sidebar/>
                 <div className={'content-wrapper'}>
                     <Routes>
-                        <Route path={'/content'} element={<Content state={props.state} addPost={addPost} />}/>
-                        <Route path={'/messages'} element={<Messages state={props.state} addMessage={addMessage} />}/>
+                        <Route path={'/content'} element={<Content state={props.store.getState()} addPost={props.addPost} />}/>
+                        <Route path={'/messages'} element={<Messages state={props.store.getState()} addMessage={props.addMessage} />}/>
                         <Route path={'/news'} element={<News />}/>
                         <Route path={'/acquaintance'} element={<Acquaintance />}/>
                         <Route path={'/settings'} element={<Settings />}/>
@@ -35,7 +37,7 @@ const App: FC<AppPropsType> = (props) => {
                         <Route path={'/technologies'} element={<Technologies />}/>
                     </Routes>
                 </div>
-                <SidebarRight state={props.state}/>
+                <SidebarRight state={props.store.getState()}/>
             </main>
         </BrowserRouter>
     );
