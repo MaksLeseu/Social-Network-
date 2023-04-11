@@ -1,10 +1,11 @@
 import React, {ChangeEvent, FC, useState} from "react";
 import s from "../Messages.module.css";
 import logo1 from "../../../img/logo1.png";
+import {ActionType} from "../../../Redux/state";
 
 type MessagesItemPropsType = {
     usersMessagesElement: any
-    addMessage: (message: string) => void
+    dispatch: (action: ActionType) => void
 }
 
 export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
@@ -16,7 +17,7 @@ export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
     }
 
     const testButton = () => {
-        props.addMessage(valueInput)
+        props.dispatch({type: 'ADD-MESSAGE', message: valueInput})
         setValueInput('')
     }
 

@@ -3,11 +3,11 @@ import {PersonalInformation} from "../PersonalInformation/PersonalInformation";
 import {InputField} from "../InputField/InputField";
 import {Posts} from "../Posts/Posts";
 import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {RootStateType} from "../../Redux/state";
+import {ActionType, RootStateType} from "../../Redux/state";
 
 type ContentPropsType = {
     state: RootStateType
-    addPost: (postMessage: string) => void
+    dispatch: (action: ActionType) => void
 }
 
 export type ElementPostsDataType = {
@@ -23,7 +23,7 @@ export const Content: FC<ContentPropsType> = (props) => {
     return (
         <div className={'profile'}>
             <PersonalInformation />
-            <InputField addPost={props.addPost} />
+            <InputField dispatch={props.dispatch} />
             <Posts postsElements={postsElements} />
         </div>
     )

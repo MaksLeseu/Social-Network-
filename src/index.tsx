@@ -13,7 +13,7 @@ const rerenderEntireTree = (store: StoreType) => {
     );
     root.render(
         <React.StrictMode>
-            <App store={store} addPost={store.addPost.bind(store)} addMessage={store.addMessage.bind(store)} />
+            <App store={store} dispatch={store.dispatch.bind(store)} />
         </React.StrictMode>
     );
 

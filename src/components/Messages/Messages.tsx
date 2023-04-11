@@ -5,11 +5,11 @@ import {Dialogs} from "./Dialogs/Dialogs";
 import {Dialog} from "./Dialogs/Dialog";
 import {Chat} from "./MessagesItem/Chat";
 import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {RootStateType} from "../../Redux/state";
+import {ActionType, RootStateType} from "../../Redux/state";
 
 type MessagesPropsType = {
     state: RootStateType
-    addMessage: (message: string) => void
+    dispatch: (action: ActionType) => void
 }
 
 export type DialogsDataElementsPropsType = {
@@ -33,7 +33,7 @@ export const Messages: FC<MessagesPropsType> = (props) => {
                 <Dialogs dialogsElement={dialogsElement} />
             </div>
             <div className={s.messages__chat}>
-                <MessagesItem usersMessagesElement={usersMessagesElement} addMessage={props.addMessage}/>
+                <MessagesItem usersMessagesElement={usersMessagesElement} dispatch={props.dispatch} />
             </div>
         </div>
     )

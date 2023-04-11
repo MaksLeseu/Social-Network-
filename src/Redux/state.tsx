@@ -38,11 +38,16 @@ export type RootStateType = {
 
 export type StoreType = {
     _state: RootStateType
-    rerenderEntireTree: (store: StoreType) => void
+    _callSubscriber: (store: StoreType) => void
     getState: () => RootStateType
-    addPost: (postMessage: string) => void
-    addMessage: (message: string) => void
     subscribe: (observer: (store: StoreType) => void) => void
+
+    dispatch: (action: ActionType) => void
+}
+
+export type ActionType = {
+    type: string
+    message: string
 }
 
 let store: StoreType = {
@@ -78,22 +83,25 @@ let store: StoreType = {
             ]
         }
     },
-    rerenderEntireTree(store: StoreType) {
+    _callSubscriber(store: StoreType) {
         console.log('Change')
     },
     getState() {
         return this._state
     },
-    addPost(postMessage: string) {
-        this._state.content.postsData.push({id: '10', message: postMessage, level: 0});
-        this.rerenderEntireTree(store)
-    },
-    addMessage(message: string) {
-        this._state.messages.usersMessage.push({id: '5', message: message})
-        this.rerenderEntireTree(store)
-    },
     subscribe(observer: (store: StoreType) => void) {
-        this.rerenderEntireTree = observer
+        this._callSubscriber = observer
+    },
+
+    dispatch(action: ActionType) {
+        if (action.type === 'ADD-POST') {
+            this._state.content.postsData.push({id: '10', message: action.message, level: 0});
+            this._callSubscriber(store)
+
+        } else if (action.type === 'ADD-MESSAGE') {
+            this._state.messages.usersMessage.push({id: '5', message: action.message})
+            this._callSubscriber(store)
+        }
     }
 }
 
