@@ -1,11 +1,10 @@
 import React, {ChangeEvent, useState} from "react";
 import './InputField.css'
-import {ActionType} from "../../Redux/state";
+import {ActionType, addPostActionCreator} from "../../Redux/state";
 
 type InputFieldPropsType = {
     dispatch: (action: ActionType) => void
 }
-
 
 export function InputField(props: InputFieldPropsType) {
 
@@ -18,8 +17,7 @@ export function InputField(props: InputFieldPropsType) {
     }
 
     function onClickButtonHandle() {
-
-        props.dispatch({type: 'ADD-POST', message: change})
+        props.dispatch(addPostActionCreator(change))
         setChange('');
     }
 

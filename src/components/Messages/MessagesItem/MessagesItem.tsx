@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC, useState} from "react";
 import s from "../Messages.module.css";
 import logo1 from "../../../img/logo1.png";
-import {ActionType} from "../../../Redux/state";
+import {ActionType, addMessageActionCreator} from "../../../Redux/state";
 
 type MessagesItemPropsType = {
     usersMessagesElement: any
@@ -16,8 +16,8 @@ export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
         setValueInput(e.currentTarget.value)
     }
 
-    const testButton = () => {
-        props.dispatch({type: 'ADD-MESSAGE', message: valueInput})
+    const addMessage = () => {
+        props.dispatch(addMessageActionCreator(valueInput))
         setValueInput('')
     }
 
@@ -38,7 +38,7 @@ export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
                     className={s.chatInput}
                     value={valueInput}
                 />
-                <button onClick={testButton} className={s.chatButton}>{'>'}</button>
+                <button onClick={addMessage} className={s.chatButton}>{'>'}</button>
             </div>
         </>
     )

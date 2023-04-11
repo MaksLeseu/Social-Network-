@@ -50,6 +50,9 @@ export type ActionType = {
     message: string
 }
 
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+
 let store: StoreType = {
     _state: {
         content: {
@@ -94,15 +97,19 @@ let store: StoreType = {
     },
 
     dispatch(action: ActionType) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             this._state.content.postsData.push({id: '10', message: action.message, level: 0});
             this._callSubscriber(store)
 
-        } else if (action.type === 'ADD-MESSAGE') {
+        } else if (action.type === ADD_MESSAGE) {
             this._state.messages.usersMessage.push({id: '5', message: action.message})
             this._callSubscriber(store)
         }
     }
 }
+
+export const addPostActionCreator = (state: string) => ({type: ADD_POST, message: state})
+
+export const addMessageActionCreator = (state: string) => ({type: ADD_MESSAGE, message: state})
 
 export default store;
