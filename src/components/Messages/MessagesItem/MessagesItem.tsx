@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC, useState} from "react";
 import s from "../Messages.module.css";
 import logo1 from "../../../img/logo1.png";
-import {ActionType} from "../../../Redux/state";
+import {ActionType} from "../../../Redux/store";
 import {addMessageActionCreator} from "../../../Redux/messages-reducer";
 
 type MessagesItemPropsType = {

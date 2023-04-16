@@ -11,7 +11,7 @@ import {Acquaintance} from "./components/Acquaintance/Acquaintance";
 import {Settings} from "./components/Settings/Settings";
 import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
-import {ActionType, StoreType} from "./Redux/state";
+import {ActionType, StoreType} from "./Redux/store";
 
 type AppPropsType = {
     store: StoreType

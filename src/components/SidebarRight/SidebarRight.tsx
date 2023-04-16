@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import './SidebarRight.css'
 import {Favorites} from "./Favorites/Favorites";
-import {RootStateType} from "../../Redux/state";
+import {RootStateType} from "../../Redux/store";
 
 type SidebarRightPropsType = {
     state: RootStateType

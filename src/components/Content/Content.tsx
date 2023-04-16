@@ -3,7 +3,7 @@ import {PersonalInformation} from "../PersonalInformation/PersonalInformation";
 import {InputField} from "../InputField/InputField";
 import {Posts} from "../Posts/Posts";
 import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {ActionType, RootStateType} from "../../Redux/state";
+import {ActionType, RootStateType} from "../../Redux/store";
 
 type ContentPropsType = {
     state: RootStateType

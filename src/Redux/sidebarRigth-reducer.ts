@@ -1,12 +1,21 @@
-import {RootStateType} from "./state";
+import {ActionType, FavoritesType, RootStateType} from "./store";
 
-type ActionType = {
 
+type SidebarRightReducerType = (state: StateType, action: ActionType) => StateType
+
+type StateType = {
+    favorites: FavoritesType[]
 }
 
-type SidebarRightReducerType = (state: RootStateType, action: ActionType) => RootStateType
+let initialState = {
+    favorites: [
+        {id: '1', personName: 'Kathy Pacheco'},
+        {id: '2', personName: 'Rodger Struck'},
+        {id: '3', personName: 'Alex Buckmaster'},
+    ]
+}
 
-export const sidebarRightReducer: SidebarRightReducerType = (state, action) => {
+export const sidebarRightReducer: SidebarRightReducerType = (state= initialState, action) => {
 
     return state
 }

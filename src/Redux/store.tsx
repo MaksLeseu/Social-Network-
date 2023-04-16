@@ -15,7 +15,7 @@ export type DialogsDataType = {
     id: string
     name: string
 }
-type FavoritesType = {
+export type FavoritesType = {
     id: string
     personName: string
 }

@@ -1,13 +1,15 @@
 import React from 'react';
-import store, {StoreType} from "./Redux/state";
+import store from "./Redux/redux-store";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+type StoreType = () => void
 
+type RerenderEntireTreeType = (state?: any) => void
 
-const rerenderEntireTree = (store: StoreType) => {
+const rerenderEntireTree: RerenderEntireTreeType = (store: any) => {
     const root = ReactDOM.createRoot(
         document.getElementById('root') as HTMLElement
     );
@@ -25,6 +27,10 @@ const rerenderEntireTree = (store: StoreType) => {
 
 rerenderEntireTree(store);
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+    let state = store
+
+    rerenderEntireTree(state)
+});
 
 
