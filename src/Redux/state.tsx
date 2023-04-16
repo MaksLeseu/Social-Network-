@@ -1,15 +1,17 @@
 import React from "react";
+import contentReducer from "./content-reducer";
+import messagesReducer from "./messages-reducer";
 
-type PostsDataType = {
+export type PostsDataType = {
     id: string
     message: string
     level: number
 }
-type UsersMessageType = {
+export type UsersMessageType = {
     id: string
     message: string
 }
-type DialogsDataType = {
+export type DialogsDataType = {
     id: string
     name: string
 }
@@ -49,9 +51,6 @@ export type ActionType = {
     type: string
     message: string
 }
-
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
 
 let store: StoreType = {
     _state: {
@@ -97,19 +96,10 @@ let store: StoreType = {
     },
 
     dispatch(action: ActionType) {
-        if (action.type === ADD_POST) {
-            this._state.content.postsData.push({id: '10', message: action.message, level: 0});
-            this._callSubscriber(store)
-
-        } else if (action.type === ADD_MESSAGE) {
-            this._state.messages.usersMessage.push({id: '5', message: action.message})
-            this._callSubscriber(store)
-        }
+        contentReducer(this._state.content, action)
+        messagesReducer(this._state.messages, action)
+        this._callSubscriber(store)
     }
 }
-
-export const addPostActionCreator = (state: string) => ({type: ADD_POST, message: state})
-
-export const addMessageActionCreator = (state: string) => ({type: ADD_MESSAGE, message: state})
 
 export default store;

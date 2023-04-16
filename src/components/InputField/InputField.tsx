@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useState} from "react";
 import './InputField.css'
-import {ActionType, addPostActionCreator} from "../../Redux/state";
+import {ActionType} from "../../Redux/state";
+import {addPostActionCreator} from "../../Redux/content-reducer";
 
 type InputFieldPropsType = {
     dispatch: (action: ActionType) => void
