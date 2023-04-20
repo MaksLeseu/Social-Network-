@@ -1,15 +1,13 @@
 import React, {ChangeEvent, FC, useState} from "react";
-import s from "../Messages.module.css";
-import logo1 from "../../../img/logo1.png";
-import {ActionType} from "../../../Redux/store";
-import {addMessageActionCreator} from "../../../Redux/messages-reducer";
+import s from "../../Messages.module.css";
+import logo1 from "../../../../img/logo1.png";
 
-type MessagesItemPropsType = {
+type ChatMessagesPropsType = {
     usersMessagesElement: any
-    dispatch: (action: ActionType) => void
+    addMessageCallback: (valueInput: string) => void
 }
 
-export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
+export const ChatMessages: FC<ChatMessagesPropsType> = (props) => {
 
     const [valueInput, setValueInput] = useState('')
 
@@ -18,7 +16,8 @@ export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
     }
 
     const addMessage = () => {
-        props.dispatch(addMessageActionCreator(valueInput))
+        props.addMessageCallback(valueInput)
+        /*props.dispatch(addMessageActionCreator(valueInput))*/
         setValueInput('')
     }
 
@@ -35,11 +34,16 @@ export const MessagesItem: FC<MessagesItemPropsType> = (props) => {
             </div>
             <div className={s.chatForm}>
                 <input
-                    onChange={getValueInput}
-                    className={s.chatInput}
                     value={valueInput}
+                    className={s.chatInput}
+                    onChange={getValueInput}
                 />
-                <button onClick={addMessage} className={s.chatButton}>{'>'}</button>
+                <button
+                    className={s.chatButton}
+                    onClick={addMessage}
+                >
+                    {'>'}
+                </button>
             </div>
         </>
     )

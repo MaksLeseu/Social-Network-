@@ -1,13 +1,13 @@
 import React, {FC} from "react";
-import {PersonalInformation} from "../PersonalInformation/PersonalInformation";
-import {InputField} from "../InputField/InputField";
-import {Posts} from "../Posts/Posts";
-import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {ActionType, RootStateType} from "../../Redux/store";
+import {PersonalInformation} from "./NestedComponents/PersonalInformation/PersonalInformation";
+import {InputField} from "./NestedComponents/InputField/InputField";
+import {Posts} from "./NestedComponents/Posts/Posts";
+import {PostLogic} from "./PostLogic/PostLogic";
+import {RootStateType} from "../../Redux/store";
 
 type ContentPropsType = {
     state: RootStateType
-    dispatch: (action: ActionType) => void
+    addPostCallback: (change: string) => void
 }
 
 export type ElementPostsDataType = {
@@ -18,12 +18,13 @@ export type ElementPostsDataType = {
 
 export const Content: FC<ContentPropsType> = (props) => {
 
-    let postsElements = props.state.content.postsData.map((el: ElementPostsDataType) => <MyPosts massege={el.message} level={el.level}/> );
+    let postsElements = props.state.content.postsData.map((el: ElementPostsDataType) =>
+        <PostLogic message={el.message} level={el.level}/> );
 
     return (
         <div className={'profile'}>
             <PersonalInformation />
-            <InputField dispatch={props.dispatch} />
+            <InputField addPostCallback={props.addPostCallback} />
             <Posts postsElements={postsElements} />
         </div>
     )

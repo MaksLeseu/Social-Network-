@@ -1,6 +1,5 @@
 import React, {FC} from "react";
-import s from "../Messages.module.css";
-import {DialogsDataElementsPropsType} from "../Messages";
+import s from "../../Messages.module.css";
 
 type DialogsPropsType = {
     dialogsElement: any

@@ -12,6 +12,8 @@ import {Settings} from "./components/Settings/Settings";
 import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
 import {ActionType, StoreType} from "./Redux/store";
+import {MessagesContainer} from "./components/Messages/MessagesContainer";
+import {ContentContainer} from "./components/Content/ContentContainer";
 
 type AppPropsType = {
     store: StoreType
@@ -27,8 +29,8 @@ const App: FC<AppPropsType> = (props) => {
                 <Sidebar/>
                 <div className={'content-wrapper'}>
                     <Routes>
-                        <Route path={'/content'} element={<Content state={props.store.getState()} dispatch={props.dispatch} />}/>
-                        <Route path={'/messages'} element={<Messages state={props.store.getState()} dispatch={props.dispatch} />}/>
+                        <Route path={'/content'} element={<ContentContainer store={props.store} dispatch={props.dispatch} />}/>
+                        <Route path={'/messages'} element={<MessagesContainer store={props.store} dispatch={props.dispatch} />}/>
                         <Route path={'/news'} element={<News />}/>
                         <Route path={'/acquaintance'} element={<Acquaintance />}/>
                         <Route path={'/settings'} element={<Settings />}/>

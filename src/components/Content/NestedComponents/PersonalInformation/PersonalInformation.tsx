@@ -1,10 +1,10 @@
-import account_icon from "../../img/account-icon.jpg";
-import publications from "../../img/personal_information/Posts.svg";
-import subscribers from "../../img/personal_information/Followers.svg";
-import subscription from "../../img/personal_information/user plus.svg";
-import phone from "../../img/personal_information/phone.svg";
-import email from "../../img/personal_information/mail.svg";
-import birthday from "../../img/personal_information/Birthday.svg";
+import account_icon from "../../../../img/account-icon.jpg";
+import publications from "../../../../img/personal_information/Posts.svg";
+import subscribers from "../../../../img/personal_information/Followers.svg";
+import subscription from "../../../../img/personal_information/user plus.svg";
+import phone from "../../../../img/personal_information/phone.svg";
+import email from "../../../../img/personal_information/mail.svg";
+import birthday from "../../../../img/personal_information/Birthday.svg";
 import React from "react";
 import './PersonalInformation.css'
 

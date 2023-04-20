@@ -2,12 +2,12 @@ import React, {FC} from "react";
 import s from "../Messages.module.css";
 
 
-type ChatType = {
+type ChatLogicType = {
     text: string
     id: string
 }
 
-export const Chat: FC<ChatType> = (props) => {
+export const ChatLogic: FC<ChatLogicType> = (props) => {
 
     function filteredMessages() {
         if (props.id === '2' || props.id === '3') {

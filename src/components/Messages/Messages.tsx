@@ -1,20 +1,14 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import s from './Messages.module.css'
-import {MessagesItem} from "./MessagesItem/MessagesItem";
-import {Dialogs} from "./Dialogs/Dialogs";
-import {Dialog} from "./Dialogs/Dialog";
-import {Chat} from "./MessagesItem/Chat";
-import {MyPosts} from "../Posts/MyPosts/MyPosts";
-import {ActionType, RootStateType} from "../../Redux/store";
+import {ChatMessages} from "./NestedComponents/ChatMessages/ChatMessages";
+import {Dialogs} from "./NestedComponents/Dialogs/Dialogs";
+import {DialogLogic} from "./DialogLogic/DialogLogic";
+import {ChatLogic} from "./ChatLogic/ChatLogic";
+import {RootStateType} from "../../Redux/store";
 
 type MessagesPropsType = {
     state: RootStateType
-    dispatch: (action: ActionType) => void
-}
-
-export type DialogsDataElementsPropsType = {
-    id: string
-    name: string
+    addMessageCallback: (valueInput: string) => void
 }
 
 type UsersMessagesElementType = {
@@ -22,18 +16,30 @@ type UsersMessagesElementType = {
     message: string
 }
 
+export type DialogsDataElementsPropsType = {
+    id: string
+    name: string
+}
+
+
 export const Messages: FC<MessagesPropsType> = (props) => {
 
-    let dialogsElement = props.state.messages.dialogsData.map((el: DialogsDataElementsPropsType) => <Dialog userName={el.name} id={el.id} /> );
+    let dialogsElement = props.state.messages.dialogsData.map((el: DialogsDataElementsPropsType) =>
+        <DialogLogic userName={el.name} id={el.id} /> );
 
-    let usersMessagesElement = props.state.messages.usersMessage.map((el: UsersMessagesElementType) => <Chat text={el.message} id={el.id}/> )
+    let usersMessagesElement = props.state.messages.usersMessage.map((el: UsersMessagesElementType) =>
+        <ChatLogic text={el.message} id={el.id}/> )
+
     return (
         <div className={s.messages}>
             <div className={s.messages__dialogs}>
                 <Dialogs dialogsElement={dialogsElement} />
             </div>
             <div className={s.messages__chat}>
-                <MessagesItem usersMessagesElement={usersMessagesElement} dispatch={props.dispatch} />
+                <ChatMessages
+                    usersMessagesElement={usersMessagesElement}
+                    addMessageCallback={props.addMessageCallback}
+                />
             </div>
         </div>
     )
