@@ -4,7 +4,7 @@ import {Favorites} from "./Favorites/Favorites";
 import {RootStateType} from "../../Redux/store";
 
 type SidebarRightPropsType = {
-    state: RootStateType
+    state: any
 }
 
 type favoritesElementType = {
@@ -14,7 +14,8 @@ type favoritesElementType = {
 
 export const SidebarRight: FC<SidebarRightPropsType> = (props) => {
 
-    let favoritesElement = props.state.sidebarRight.favorites.map((el: favoritesElementType) => <Favorites personName={el.personName} /> )
+    let favoritesElement = props.state.map((el: favoritesElementType) =>
+        <Favorites personName={el.personName} /> )
 
     return (
         <div className={'sidebar-right'}>
@@ -27,3 +28,5 @@ export const SidebarRight: FC<SidebarRightPropsType> = (props) => {
         </div>
     )
 }
+
+

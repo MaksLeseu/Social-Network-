@@ -5,8 +5,8 @@ import {Posts} from "./NestedComponents/Posts/Posts";
 import {PostLogic} from "./PostLogic/PostLogic";
 import {RootStateType} from "../../Redux/store";
 
-type ContentPropsType = {
-    state: RootStateType
+export type ContentPropsType = {
+    state: any
     addPostCallback: (change: string) => void
 }
 
@@ -18,7 +18,7 @@ export type ElementPostsDataType = {
 
 export const Content: FC<ContentPropsType> = (props) => {
 
-    let postsElements = props.state.content.postsData.map((el: ElementPostsDataType) =>
+    let postsElements = props.state.map((el: ElementPostsDataType) =>
         <PostLogic message={el.message} level={el.level}/> );
 
     return (

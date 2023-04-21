@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from "react-redux";
 
 type StoreType = () => void
 
@@ -15,7 +16,9 @@ const rerenderEntireTree: RerenderEntireTreeType = (store: any) => {
     );
     root.render(
         <React.StrictMode>
-            <App store={store} dispatch={store.dispatch.bind(store)} />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </React.StrictMode>
     );
 
@@ -29,8 +32,9 @@ rerenderEntireTree(store);
 
 store.subscribe(() => {
     let state = store
-
     rerenderEntireTree(state)
 });
+
+/*dispatch={store.dispatch.bind(store)}*/
 
 
