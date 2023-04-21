@@ -20,10 +20,9 @@ const contentReducer: ContentReducerType = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
-        state.postsData.push(
-            {id: '10', message: action.message, level: 0}
-        )
-            return state;
+         let stateCopy = {...state, postsData: [...state.postsData,
+                 {id: '10', message: action.message, level: 0}]}
+            return stateCopy;
         default: return state
     }
 }

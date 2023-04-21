@@ -15,8 +15,8 @@ import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarR
 const App = () => {
 
     return (
-        <BrowserRouter>
-            <Header/>
+        /*<BrowserRouter>
+            <Header/>*/
             <main className={'container'}>
                 <Sidebar/>
                 <div className={'content-wrapper'}>
@@ -32,7 +32,7 @@ const App = () => {
                 </div>
                 <ContainerSidebarRight />
             </main>
-        </BrowserRouter>
+        /*</BrowserRouter>*/
     );
 }
 

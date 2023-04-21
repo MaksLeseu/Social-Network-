@@ -30,10 +30,9 @@ const messagesReducer: MessagesReducerType = (state= initialState, action) => {
 
     switch (action.type) {
         case ADD_MESSAGE:
-            state.usersMessage.push(
-                {id: '5', message: action.message}
-            )
-            return state
+            let stateCopy = {...state, usersMessage:
+                    [...state.usersMessage, {id: '5', message: action.message}]}
+            return stateCopy
         default: return state
     }
 }
