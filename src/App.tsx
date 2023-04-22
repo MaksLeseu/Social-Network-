@@ -11,12 +11,12 @@ import {Technologies} from "./components/Technologies/Technologies";
 import {MessagesContainer} from "./components/Messages/MessagesContainer";
 import {ContentContainer} from "./components/Content/ContentContainer";
 import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarRight";
+import {Users} from "./components/Users/Users";
+import {UsersContainer} from "./components/Users/UsersContainer";
 
 const App = () => {
 
     return (
-        /*<BrowserRouter>
-            <Header/>*/
             <main className={'container'}>
                 <Sidebar/>
                 <div className={'content-wrapper'}>
@@ -24,6 +24,7 @@ const App = () => {
                         <Route path={'/content'} element={<ContentContainer />}/>
                         <Route path={'/messages'} element={<MessagesContainer  />}/>
                         <Route path={'/news'} element={<News />}/>
+                        <Route path={'/users'} element={<UsersContainer />}/>
                         <Route path={'/acquaintance'} element={<Acquaintance />}/>
                         <Route path={'/settings'} element={<Settings />}/>
                         <Route path={'/developers'} element={<Developers />}/>
@@ -32,7 +33,6 @@ const App = () => {
                 </div>
                 <ContainerSidebarRight />
             </main>
-        /*</BrowserRouter>*/
     );
 }
 

@@ -23,6 +23,10 @@ export function Sidebar() {
                     <img className={'sidebar__menu-icon'} src={news}/>
                     <p>News</p>
                 </NavLink>
+                <NavLink to={'/users'} className={'sidebar__menu-acquaintance sidebar__menu-list'}>
+                    <img className={'sidebar__menu-icon'} src={acquaintance}/>
+                    <p>Users</p>
+                </NavLink>
                 <NavLink to={'/acquaintance'} className={'sidebar__menu-acquaintance sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={acquaintance}/>
                     <p>Acquaintance</p>

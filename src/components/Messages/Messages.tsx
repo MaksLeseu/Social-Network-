@@ -7,7 +7,7 @@ import {ChatLogic} from "./ChatLogic/ChatLogic";
 import {RootStateType} from "../../Redux/store";
 
 type MessagesPropsType = {
-    state: RootStateType
+    state: any
     addMessageCallback: (valueInput: string) => void
 }
 
@@ -24,10 +24,10 @@ export type DialogsDataElementsPropsType = {
 
 export const Messages: FC<MessagesPropsType> = (props) => {
 
-    let dialogsElement = props.state.messages.dialogsData.map((el: DialogsDataElementsPropsType) =>
+    let dialogsElement = props.state.dialogsData.map((el: DialogsDataElementsPropsType) =>
         <DialogLogic userName={el.name} id={el.id} /> );
 
-    let usersMessagesElement = props.state.messages.usersMessage.map((el: UsersMessagesElementType) =>
+    let usersMessagesElement = props.state.usersMessage.map((el: UsersMessagesElementType) =>
         <ChatLogic text={el.message} id={el.id}/> )
 
     return (

@@ -1,0 +1,79 @@
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #edf4ff;
+    border-radius: 20px;
+    border: 1px #B2EAEE solid;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.userContainer {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.userIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.userIcon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px #B2EAEE solid;
+    border-radius: 5px;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.status {
+    font-size: 16px;
+}
+
+.live {
+    font-size: 16px;
+}
+
+.btn {
+    width: 65px;
+    height: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #92B1ED;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.btnActive {
+    background-color: #B2EAEE;
+    border: 1px solid black;
+}
+

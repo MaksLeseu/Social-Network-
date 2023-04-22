@@ -19,7 +19,7 @@ export type ElementPostsDataType = {
 export const Content: FC<ContentPropsType> = (props) => {
 
     let postsElements = props.state.map((el: ElementPostsDataType) =>
-        <PostLogic message={el.message} level={el.level}/> );
+        <PostLogic message={el.message} level={el.level} key={el.id}/> );
 
     return (
         <div className={'profile'}>
