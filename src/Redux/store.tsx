@@ -95,7 +95,7 @@ let store: StoreType = {
         this._callSubscriber = observer
     },
 
-    dispatch(action: ActionType) {
+    dispatch(action: any) {
         contentReducer(this._state.content, action)
         messagesReducer(this._state.messages, action)
         this._callSubscriber(store)
