@@ -1,14 +1,17 @@
-import {FavoritesType} from "./store";
 import {ActionsType} from "./redux-store";
 
+type FavoritesType = {
+    id: string
+    personName: string
+}
 
-type SidebarRightReducerType = (state: StateType, action: ActionsType) => StateType
+type SidebarRightReducerType = (state: SidebarRightInitialStateType, action: ActionsType) => SidebarRightInitialStateType
 
-type StateType = {
+export type SidebarRightInitialStateType = {
     favorites: FavoritesType[]
 }
 
-let initialState: StateType = {
+let initialState: SidebarRightInitialStateType = {
     favorites: [
         {id: '1', personName: 'Kathy Pacheco'},
         {id: '2', personName: 'Rodger Struck'},

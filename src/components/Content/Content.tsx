@@ -3,12 +3,7 @@ import {PersonalInformation} from "./NestedComponents/PersonalInformation/Person
 import {InputField} from "./NestedComponents/InputField/InputField";
 import {Posts} from "./NestedComponents/Posts/Posts";
 import {PostLogic} from "./PostLogic/PostLogic";
-import {RootStateType} from "../../Redux/store";
-
-export type ContentPropsType = {
-    state: any
-    addPostCallback: (change: string) => void
-}
+import {ContentPropsType} from "./ContentContainer";
 
 export type ElementPostsDataType = {
     id: string
@@ -18,7 +13,7 @@ export type ElementPostsDataType = {
 
 export const Content: FC<ContentPropsType> = (props) => {
 
-    let postsElements = props.state.map((el: ElementPostsDataType) =>
+    let postsElements = props.state.content.map((el: ElementPostsDataType) =>
         <PostLogic message={el.message} level={el.level} key={el.id}/> );
 
     return (

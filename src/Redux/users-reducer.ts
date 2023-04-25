@@ -12,17 +12,13 @@ export type UsersDataType = {
     }
 }
 
-type StateType = {
+export type UsersInitialStateType = {
     usersData: UsersDataType[]
 }
 
-type UsersReducerType = (state: StateType, action: any) => StateType
+type UsersReducerType = (state: UsersInitialStateType, action: any) => UsersInitialStateType
 
-/*const FOLLOW: string = 'FOLLOW'
-const UNFOLLOW: string = 'UNFOLLOW'
-const SET_USERS: string = 'SET_USERS'*/
-
-let initialState = {
+let initialState: UsersInitialStateType = {
     usersData: [
         {id: '1', follow: false, fullName: 'Max', status: 'I live in Russian!', location: {city: 'Kelce', country: 'Poland'}},
         {id: '2', follow: true, fullName: 'Fil', status: 'I need more money!', location: {city: 'Kelce', country: 'Poland'}},

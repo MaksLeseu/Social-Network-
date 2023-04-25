@@ -2,16 +2,11 @@ import React, {FC} from "react";
 import {UsersDataType} from "../../Redux/users-reducer";
 import {UsersNested} from "./UsersNested/UsersNested";
 import s from "./UsersNested/UsersNested.module.css";
-
-type UsersPropsType = {
-    state: UsersDataType[]
-    followChangeCallback: (id: string) => void
-    unfollowChangeCallback: (id: string) => void
-}
+import {UsersPropsType} from "./UsersContainer";
 
 export const Users: FC<UsersPropsType> = (props) => {
 
-    let users = props.state.map((el: UsersDataType) =>
+    let users = props.state.usersData.map((el: UsersDataType) =>
         <UsersNested
             id={el.id}
             name={el.fullName}

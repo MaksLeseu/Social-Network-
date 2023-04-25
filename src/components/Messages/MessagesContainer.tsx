@@ -1,16 +1,24 @@
 import React from "react";
 import {Messages} from "./Messages";
-import {addMessageActionCreator} from "../../Redux/messages-reducer";
-import {ActionType} from "../../Redux/store";
+import {addMessageActionCreator, MessagesInitialStateType} from "../../Redux/messages-reducer";
 import {connect} from "react-redux";
-import {ActionsType} from "../../Redux/redux-store";
+import {ActionsType, AppStateType} from "../../Redux/redux-store";
+import {Dispatch} from "redux";
 
-let mapStateToProps = (state: any) => {
+type MapStatePropsType = {
+    state: MessagesInitialStateType
+}
+type MapDispatchPropsType = {
+    addMessageCallback: (valueInput: string) => void
+}
+export type MessagesPropsType = MapStatePropsType & MapDispatchPropsType
+
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         state: state.messages
     }
 }
-let mapDispatchToProps = (dispatch: (action: ActionsType) => void) => {
+let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     return {
         addMessageCallback: (valueInput: string) => {
             dispatch(addMessageActionCreator(valueInput))

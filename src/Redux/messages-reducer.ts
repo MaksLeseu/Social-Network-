@@ -1,18 +1,24 @@
-import {DialogsDataType, PostsDataType, UsersMessageType} from "./store";
 import {ActionsType} from "./redux-store";
 
-type StateType = {
+type DialogsDataType = {
+    id: string
+    name: string
+}
+type UsersMessageType = {
+    id: string
+    message: string
+}
+
+export type MessagesInitialStateType = {
     usersMessage: UsersMessageType[]
     dialogsData: DialogsDataType[]
 }
 
-type MessagesReducerType = (state: StateType, action: ActionsType) => StateType
+type MessagesReducerType = (state: MessagesInitialStateType, action: ActionsType) => MessagesInitialStateType
 
 type AddMessageActionCreatorType = (state: string) => ActionsType
 
-/*const ADD_MESSAGE: string = 'ADD-MESSAGE';*/
-
-let initialState: StateType = {
+let initialState: MessagesInitialStateType = {
     usersMessage: [
         {id: '1', message: 'Hi brother!'},
         {id: '2', message: 'Hi man!'},
@@ -29,7 +35,7 @@ let initialState: StateType = {
     ],
 }
 
-const messagesReducer: MessagesReducerType = (state= initialState, action): StateType => {
+const messagesReducer: MessagesReducerType = (state= initialState, action): MessagesInitialStateType => {
 
     switch (action.type) {
         case 'ADD-MESSAGE':

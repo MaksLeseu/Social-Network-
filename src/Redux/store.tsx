@@ -2,7 +2,8 @@ import React from "react";
 import contentReducer from "./content-reducer";
 import messagesReducer from "./messages-reducer";
 
-export type PostsDataType = {
+/*
+type PostsDataType = {
     id: string
     message: string
     level: number
@@ -100,6 +101,8 @@ let store: StoreType = {
         messagesReducer(this._state.messages, action)
         this._callSubscriber(store)
     }
+
 }
 
 export default store;
+*/

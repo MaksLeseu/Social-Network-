@@ -4,12 +4,7 @@ import {ChatMessages} from "./NestedComponents/ChatMessages/ChatMessages";
 import {Dialogs} from "./NestedComponents/Dialogs/Dialogs";
 import {DialogLogic} from "./DialogLogic/DialogLogic";
 import {ChatLogic} from "./ChatLogic/ChatLogic";
-import {RootStateType} from "../../Redux/store";
-
-type MessagesPropsType = {
-    state: any
-    addMessageCallback: (valueInput: string) => void
-}
+import {MessagesPropsType} from "./MessagesContainer";
 
 type UsersMessagesElementType = {
     id: string
