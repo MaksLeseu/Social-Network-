@@ -1,15 +1,15 @@
 import React from "react";
 import {ActionsType} from "./redux-store";
 
-export type UsersDataType = {
+export type  UsersDataType = {
     id: string
-    follow: boolean
-    fullName: string
+    followed: boolean
+    name: string
     status: string
-    location: {
+    /*location: {
         city: string
         country: string
-    }
+    }*/
 }
 
 export type UsersInitialStateType = {
@@ -20,14 +20,14 @@ type UsersReducerType = (state: UsersInitialStateType, action: any) => UsersInit
 
 let initialState: UsersInitialStateType = {
     usersData: [
-        {id: '1', follow: false, fullName: 'Max', status: 'I live in Russian!', location: {city: 'Kelce', country: 'Poland'}},
+        /*{id: '1', follow: false, fullName: 'Max', status: 'I live in Russian!', location: {city: 'Kelce', country: 'Poland'}},
         {id: '2', follow: true, fullName: 'Fil', status: 'I need more money!', location: {city: 'Kelce', country: 'Poland'}},
         {id: '3', follow: true, fullName: 'Alex', status: 'The bigger the better!', location: {city: 'Soligorsk', country: 'Belarusian'}},
-        {id: '4', follow: false, fullName: 'Vitluss', status: 'Doctors should get more money!', location: {city: 'Molo', country: 'Belarusian'}},
+        {id: '4', follow: false, fullName: 'Vitluss', status: 'Doctors should get more money!', location: {city: 'Molo', country: 'Belarusian'}},*/
     ]
 }
 
-const usersReducer: UsersReducerType = (state = initialState, action) => {
+const usersReducer: UsersReducerType = (state= initialState , action) => {
 
     switch (action.type) {
         case 'FOLLOW':
@@ -37,7 +37,7 @@ const usersReducer: UsersReducerType = (state = initialState, action) => {
             return {...state, usersData:
                     state.usersData.map((el) => el.id === action.id ? {...el, follow: true} : el)}
         case 'SET_USERS': {
-            return {...state, usersData: [...state.usersData, action.users]}
+            return {...state, usersData: [...state.usersData, ...action.users]}
         }
         default: return state
     }
@@ -45,6 +45,6 @@ const usersReducer: UsersReducerType = (state = initialState, action) => {
 
 export const followAC = (userID: string) => ({type: 'FOLLOW', id: userID})
 export const unfollowAC = (userID: string) => ({type: 'UNFOLLOW', id: userID})
-export const setUsersAC = (users: []) => ({type: 'SET_USERS', users: users})
+export const setUsersAC = (users: UsersDataType[]) => ({type: 'SET_USERS', users: users})
 
 export default usersReducer

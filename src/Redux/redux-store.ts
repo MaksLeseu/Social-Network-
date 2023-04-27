@@ -26,7 +26,7 @@ type UnfollowAcType = {
 
 type SetUsersAcType = {
     type: 'SET_USERS'
-    users: []
+    users: any
 }
 
 export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType
