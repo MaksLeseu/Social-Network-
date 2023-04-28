@@ -7,11 +7,11 @@ import axios from "axios";
 
 export const Users: FC<UsersPropsType> = (props) => {
 
-    if (props.state.usersData.length === 0) {
+    /*if (props.state.usersData.length === 0) {
         axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
             props.setUsers(responce.data.items)
         })
-    }
+    }*/
 
     let users = props.state.usersData.map((el: UsersDataType) =>
         <UsersNested
