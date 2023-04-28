@@ -77,3 +77,24 @@
     border: 1px solid black;
 }
 
+.usersBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.usersPage {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.usersPageActive {
+    font-weight: 700;
+    color: white;
+    transition: all 0.3s ease 0s;
+    background-color: #B2EAEE;
+}
+
