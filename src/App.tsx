@@ -12,7 +12,7 @@ import {MessagesContainer} from "./components/Messages/MessagesContainer";
 import {ContentContainer} from "./components/Content/ContentContainer";
 import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarRight";
 import {Users} from "./components/Users/Users";
-import {UsersContainer} from "./components/Users/UsersContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
 
