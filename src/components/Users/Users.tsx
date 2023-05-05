@@ -21,8 +21,8 @@ export const Users: FC<UsersPropsType> = (props) => {
             country={el.location.country}*/
             status={el.status}
             followed={el.followed}
-            followChangeCallback={props.followChangeCallback}
-            unfollowChangeCallback={props.unfollowChangeCallback}
+            followChangeCallback={props.follow}
+            unfollowChangeCallback={props.unfollow}
         />)
 
     return <div className={s.container}>{users}</div>

@@ -60,11 +60,11 @@ const usersReducer: UsersReducerType = (state= initialState , action) => {
     }
 }
 
-export const followAC = (userID: string) => ({type: 'FOLLOW', id: userID})
-export const unfollowAC = (userID: string) => ({type: 'UNFOLLOW', id: userID})
-export const setUsersAC = (users: UsersDataType[]) => ({type: 'SET_USERS', users: users})
-export const setCurrentPageAC = (page: number) => ({type: 'SET_CURRENT_PAGE', currentPage: page})
-export const setTotalCountAC = (count: number) => ({type: 'SET_TOTAL_COUNT', totalUsersCount: count})
-export const setIsFetchingAC = (newIsFetching: boolean) => ({type: 'TOGGLE_IS_FETCHING', newIsFetching})
+export const follow = (userID: string) => ({type: 'FOLLOW', id: userID})
+export const unfollow = (userID: string) => ({type: 'UNFOLLOW', id: userID})
+export const setUsers = (users: UsersDataType[]) => ({type: 'SET_USERS', users: users})
+export const setCurrentPage = (page: number) => ({type: 'SET_CURRENT_PAGE', currentPage: page})
+export const setTotalCount = (count: number) => ({type: 'SET_TOTAL_COUNT', totalUsersCount: count})
+export const setIsFetching = (newIsFetching: boolean) => ({type: 'TOGGLE_IS_FETCHING', newIsFetching})
 
 export default usersReducer

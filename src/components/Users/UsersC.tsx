@@ -8,8 +8,8 @@ type UsersCPropsType = {
     usersData: any
     pageSize: any
     totalUsersCount: any
-    followChangeCallback: (id: string) => void
-    unfollowChangeCallback :(id: string) => void
+    follow: (id: string) => void
+    unfollow :(id: string) => void
     onPageChanged: (pageNumber: number) => void
 }
 
@@ -35,12 +35,12 @@ const UsersC: FC<UsersCPropsType> = (props) => {
                                 ?
                                 <button
                                     className={`${s.btn} ${s.btnActive}`}
-                                    onClick={() => props.followChangeCallback(el.id)}
+                                    onClick={() => props.follow(el.id)}
                                 >Unfollow</button>
                                 :
                                 <button
                                     className={s.btn}
-                                    onClick={() => props.unfollowChangeCallback(el.id)}
+                                    onClick={() => props.unfollow(el.id)}
                                 >Follow</button>}</div>
                         </div>
                         <div className={s.user}>
