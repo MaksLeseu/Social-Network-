@@ -8,11 +8,9 @@ import {
     UsersInitialStateType
 } from "../../Redux/users-reducer";
 import {AppStateType} from "../../Redux/redux-store";
-import {Dispatch} from "redux";
 import UsersC from "./UsersC";
-import axios from "axios";
-import preloader from  '../../img/loading.svg'
 import {Preloader} from "../../common/Preloader";
+import axios from "axios";
 
 type MapStatePropsType = {
     state: UsersInitialStateType

@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC, useState} from "react";
 import s from "../../Messages.module.css";
 import logo1 from "../../../../img/logo1.png";
+import img from '../../../../img/input_field/btn_input.svg'
 
 type ChatMessagesPropsType = {
     usersMessagesElement: any
@@ -42,7 +43,7 @@ export const ChatMessages: FC<ChatMessagesPropsType> = (props) => {
                     className={s.chatButton}
                     onClick={addMessage}
                 >
-                    {'>'}
+                    <div className={s.imgContainer}><img src={img} className={s.img}/></div>
                 </button>
             </div>
         </>

@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from "redux";
-import contentReducer from "./content-reducer";
+import profileReducer from "./profile-reducer";
 import messagesReducer from "./messages-reducer";
 import {sidebarRightReducer} from "./sidebarRigth-reducer";
 import usersReducer from "./users-reducer";
@@ -29,10 +29,16 @@ type SetUsersAcType = {
     users: any
 }
 
-export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType
+type ProfileACType = {
+    type: 'SET_USERS_PROFILE'
+    profile: any
+
+}
+
+export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType | ProfileACType
 
 let reducers = combineReducers({
-    content: contentReducer,
+    profilePage: profileReducer,
     messages: messagesReducer,
     sidebarRight: sidebarRightReducer,
     users: usersReducer,

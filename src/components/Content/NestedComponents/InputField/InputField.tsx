@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useState} from "react";
+import img from '../../../../img/input_field/btn_input.svg'
 import './InputField.css'
 
 type InputFieldPropsType = {
@@ -9,11 +10,11 @@ export function InputField(props: InputFieldPropsType) {
 
     let [valueInput, setValueInput] = useState<string>('');
 
-    const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const onChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
         setValueInput(e.currentTarget.value);
     }
 
-    const addPost = () => {
+    const addPost = (): void => {
         props.addPostCallback(valueInput)
         setValueInput('');
     }
@@ -33,7 +34,7 @@ export function InputField(props: InputFieldPropsType) {
                 className={'btn'}
                 onClick={addPost}
             >
-                A
+                <div className={'img__container'}><img src={img} className={'img'}/></div>
             </button>
         </div>
     )

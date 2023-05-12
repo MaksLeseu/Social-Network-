@@ -58,13 +58,13 @@ export function PersonalInformation() {
                     <img src={email} />
                     <div className={'personal-information__contact-text'}>
                         <p>Email</p>
-                        <span>KatieS@gmail.com</span>
+                        <span>lesov0iblr@gmail.com</span>
                     </div>
                 </div><div className={'personal-information__contact-phone personal-information__contact-list'}>
                     <img src={birthday} />
                     <div className={'personal-information__contact-text'}>
                         <p>Birthday</p>
-                        <span>April, 10</span>
+                        <span>March, 15</span>
                     </div>
                 </div>
                 </div>

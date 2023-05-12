@@ -63,6 +63,7 @@
 }
 
 .btn {
+    transition: all 0.3s ease 0s;
     width: 65px;
     height: 25px;
     background-color: #FFFFFF;
@@ -73,6 +74,7 @@
 }
 
 .btnActive {
+    transition: all 0.2s ease 0s;
     background-color: #B2EAEE;
     border: 1px solid black;
 }

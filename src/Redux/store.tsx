@@ -1,5 +1,5 @@
 import React from "react";
-import contentReducer from "./content-reducer";
+import profileReducer from "./profile-reducer";
 import messagesReducer from "./messages-reducer";
 
 /*
@@ -97,7 +97,7 @@ let store: StoreType = {
     },
 
     dispatch(action: any) {
-        contentReducer(this._state.content, action)
+        profileReducer(this._state.content, action)
         messagesReducer(this._state.messages, action)
         this._callSubscriber(store)
     }
