@@ -14,7 +14,9 @@ import axios from "axios";
 
 type MapStatePropsType = {
     state: UsersInitialStateType
-
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 type MapDispatchPropsType = {
     follow: (id: string) => void
@@ -72,11 +74,12 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
     }
 }
 
-let mapStateToProps = (state: AppStateType): MapStatePropsType => {
+let mapStateToProps = (state: any): MapStatePropsType => {
     return {
         state: state.users,
-        /*pageSize: state.users.pageSize,
-        totalUsersCount: state.users.totalUsersCount*/
+        pageSize: state.users.pageSize,
+        totalUsersCount: state.users.totalUsersCount,
+        currentPage: state.users.currentPage
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {

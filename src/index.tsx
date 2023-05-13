@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {Header} from "./components/Header/Header";
 import {BrowserRouter} from "react-router-dom";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -14,8 +15,8 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Header/>
             <Provider store={store}>
+                <HeaderContainer />
                 <App />
             </Provider>
         </BrowserRouter>

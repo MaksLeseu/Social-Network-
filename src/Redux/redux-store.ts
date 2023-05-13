@@ -3,6 +3,7 @@ import profileReducer from "./profile-reducer";
 import messagesReducer from "./messages-reducer";
 import {sidebarRightReducer} from "./sidebarRigth-reducer";
 import usersReducer from "./users-reducer";
+import authReducer, {UsersInitialStateType} from "./auth-reducer";
 
 type ContentAcType = {
     type: 'ADD-POST'
@@ -35,13 +36,19 @@ type ProfileACType = {
 
 }
 
-export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType | ProfileACType
+type SetAuthUserDataAC = {
+    type: 'SET_AUTH_USER_DATA'
+    data: UsersInitialStateType
+}
+
+export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType | ProfileACType | SetAuthUserDataAC
 
 let reducers = combineReducers({
     profilePage: profileReducer,
     messages: messagesReducer,
     sidebarRight: sidebarRightReducer,
     users: usersReducer,
+    auth: authReducer,
 })
 
 let store = createStore(reducers);
