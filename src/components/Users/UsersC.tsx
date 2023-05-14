@@ -3,6 +3,8 @@ import s from "./UsersNested/UsersNested.module.css";
 import {UsersDataType} from "../../Redux/users-reducer";
 import logo1 from "../../img/logo1.png";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
+import {usersAPI} from "../../api/api";
 
 type UsersCPropsType = {
     currentPage: any
@@ -38,12 +40,40 @@ const UsersC: FC<UsersCPropsType> = (props) => {
                                 ?
                                 <button
                                     className={`${s.btn} ${s.btnActive}`}
-                                    onClick={() => props.follow(u.id)}
+                                    onClick={() => {
+                                        /*axios.delete(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {
+                                            withCredentials: true,
+                                            headers: {
+                                                'API-KEY': '6c38e33f-71de-49e1-a68d-149628854242'
+                                            }
+                                        })*/
+                                        usersAPI.unfollow(u.id)
+                                            .then(responce => {
+                                                if (responce.data.resultCode === 0) {
+                                                    props.follow(u.id)
+                                                }
+                                            })
+                                        /*props.follow(u.id)*/
+                                    }}
                                 >Unfollow</button>
                                 :
                                 <button
                                     className={s.btn}
-                                    onClick={() => props.unfollow(u.id)}
+                                    onClick={() => {
+                                        /*axios.post(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {}, {
+                                            withCredentials: true,
+                                            headers: {
+                                                'API-KEY': '6c38e33f-71de-49e1-a68d-149628854242'
+                                            }
+                                        })*/
+                                        usersAPI.follow(u.id)
+                                            .then(responce => {
+                                                if (responce.data.resultCode === 0) {
+                                                    props.unfollow(u.id)
+                                                }
+                                            })
+                                        /*return props.unfollow(u.id)*/
+                                    }}
                                 >Follow</button>}</div>
                         </div>
                         <div className={s.user}>

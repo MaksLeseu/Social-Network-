@@ -7,6 +7,7 @@ import {PostLogic} from "./PostLogic/PostLogic";
 import Profile from "./Profile";
 import axios from "axios";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {usersAPI} from "../../api/api";
 
 export type ElementPostsDataType = {
     id: string
@@ -17,9 +18,9 @@ export type ElementPostsDataType = {
 class ProfileContainer extends React.Component<any> {
 
     componentDidMount() {
-        console.log(this.props.router)
         let profileId = this.props.router.params.profileId;
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId}`)
+        /*axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId}`)*/
+        usersAPI.getProfile(profileId)
             .then(responce => {
             this.props.setUserProfile(responce.data)
         })

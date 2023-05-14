@@ -13,7 +13,7 @@ export const Users: FC<UsersPropsType> = (props) => {
         })
     }*/
 
-    let users = props.state.usersData.map((el: UsersDataType) =>
+    let users = props.usersData.map((el: UsersDataType) =>
         <UsersNested
             id={el.id}
             name={el.name}

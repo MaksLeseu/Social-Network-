@@ -11,12 +11,14 @@ import {AppStateType} from "../../Redux/redux-store";
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
 import axios from "axios";
+import {usersAPI} from "../../api/api";
 
 type MapStatePropsType = {
-    state: UsersInitialStateType
+    usersData: any
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 type MapDispatchPropsType = {
     follow: (id: string) => void
@@ -29,7 +31,11 @@ type MapDispatchPropsType = {
 export type UsersPropsType = MapStatePropsType & MapDispatchPropsType
 
 type UsersAPIComponentType = {
-    state: UsersInitialStateType
+    usersData: any
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalUsersCount: number
     setUsers: (users: UsersDataType[]) => void
     follow: (id: string) => void
     unfollow :(id: string) => void
@@ -41,7 +47,11 @@ type UsersAPIComponentType = {
 class UsersContainer extends React.Component<UsersAPIComponentType> {
 
     componentDidMount () {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.state.currentPage}&count=${this.props.state.pageSize}`).then(responce => {
+        /*axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true
+        })*/
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+            .then(responce => {
             this.props.setUsers(responce.data.items)
             this.props.setTotalCount(responce.data.totalCount)
         })
@@ -50,7 +60,11 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
     onPageChanged = (pageNumber: number) => {
         this.props.setCurrentPage(pageNumber)
         this.props.setIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.state.pageSize}`).then(responce => {
+        /*axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+            withCredentials: true
+        })*/
+        usersAPI.pageChanged(pageNumber, this.props.pageSize)
+            .then(responce => {
             this.props.setUsers(responce.data.items)
             this.props.setIsFetching(false)
         })
@@ -59,12 +73,12 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
     render () {
         return (
             <>
-                {this.props.state.isFetching ? <Preloader /> :
+                {this.props.isFetching ? <Preloader /> :
                     <UsersC
-                        currentPage={this.props.state.currentPage}
-                        usersData={this.props.state.usersData}
-                        pageSize={this.props.state.pageSize}
-                        totalUsersCount={this.props.state.totalUsersCount}
+                        currentPage={this.props.currentPage}
+                        usersData={this.props.usersData}
+                        pageSize={this.props.pageSize}
+                        totalUsersCount={this.props.totalUsersCount}
                         follow={this.props.follow}
                         unfollow={this.props.unfollow}
                         onPageChanged={this.onPageChanged}
@@ -76,10 +90,11 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
 
 let mapStateToProps = (state: any): MapStatePropsType => {
     return {
-        state: state.users,
+        usersData: state.users.usersData,
         pageSize: state.users.pageSize,
         totalUsersCount: state.users.totalUsersCount,
-        currentPage: state.users.currentPage
+        currentPage: state.users.currentPage,
+        isFetching: state.users.isFetching
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
