@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
+    disableBtn,
     follow,
     setCurrentPage, setIsFetching,
     setTotalCount, setUsers, unfollow,
@@ -19,6 +20,7 @@ type MapStatePropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress: any
 }
 type MapDispatchPropsType = {
     follow: (id: string) => void
@@ -42,14 +44,13 @@ type UsersAPIComponentType = {
     setCurrentPage: (page: number) => void
     setTotalCount: (count: number) => void
     setIsFetching: (newIsFetching: boolean) => void
+    followingInProgress: any
+    disableBtn: (isFetching: boolean, id: string) => void
 }
 
 class UsersContainer extends React.Component<UsersAPIComponentType> {
 
     componentDidMount () {
-        /*axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        })*/
         usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
             .then(responce => {
             this.props.setUsers(responce.data.items)
@@ -60,9 +61,6 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
     onPageChanged = (pageNumber: number) => {
         this.props.setCurrentPage(pageNumber)
         this.props.setIsFetching(true)
-        /*axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        })*/
         usersAPI.pageChanged(pageNumber, this.props.pageSize)
             .then(responce => {
             this.props.setUsers(responce.data.items)
@@ -82,6 +80,8 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
                         follow={this.props.follow}
                         unfollow={this.props.unfollow}
                         onPageChanged={this.onPageChanged}
+                        followingInProgress={this.props.followingInProgress}
+                        disableBtn={this.props.disableBtn}
                     />}
             </>
         )
@@ -94,7 +94,8 @@ let mapStateToProps = (state: any): MapStatePropsType => {
         pageSize: state.users.pageSize,
         totalUsersCount: state.users.totalUsersCount,
         currentPage: state.users.currentPage,
-        isFetching: state.users.isFetching
+        isFetching: state.users.isFetching,
+        followingInProgress: state.users.followingInProgress
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
@@ -120,4 +121,4 @@ let mapStateToProps = (state: any): MapStatePropsType => {
     }
 }*/
 
-export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalCount, setIsFetching})(UsersContainer)
+export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalCount, setIsFetching, disableBtn})(UsersContainer)

@@ -33,7 +33,12 @@ type SetUsersAcType = {
 type ProfileACType = {
     type: 'SET_USERS_PROFILE'
     profile: any
+}
 
+type DisableButtonType = {
+    type: 'TOGGLE_IS_FOLLOWING_PROGRESS'
+    isFetching: boolean
+    id: string
 }
 
 type SetAuthUserDataAC = {
@@ -41,7 +46,7 @@ type SetAuthUserDataAC = {
     data: UsersInitialStateType
 }
 
-export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType | ProfileACType | SetAuthUserDataAC
+export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType | ProfileACType | SetAuthUserDataAC | DisableButtonType
 
 let reducers = combineReducers({
     profilePage: profileReducer,

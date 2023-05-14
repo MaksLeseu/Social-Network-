@@ -1,5 +1,6 @@
 import React from "react";
 import {ActionsType} from "./redux-store";
+import {log} from "util";
 
 export type  UsersDataType = {
     id: string
@@ -19,6 +20,7 @@ export type UsersInitialStateType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress: any
 }
 
 type UsersReducerType = (state: UsersInitialStateType, action: any) => UsersInitialStateType
@@ -29,6 +31,7 @@ let initialState: UsersInitialStateType = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    followingInProgress: []
 }
 
 const usersReducer: UsersReducerType = (state= initialState , action) => {
@@ -52,6 +55,14 @@ const usersReducer: UsersReducerType = (state= initialState , action) => {
         case 'TOGGLE_IS_FETCHING': {
             return {...state, isFetching: action.newIsFetching}
         }
+        case 'TOGGLE_IS_FOLLOWING_PROGRESS': {
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                ? [...state.followingInProgress, action.id]
+                : state.followingInProgress.filter((id: any) => id !== action.id)
+            }
+        }
         default: return state
     }
 }
@@ -62,5 +73,6 @@ export const setUsers = (users: UsersDataType[]) => ({type: 'SET_USERS', users: 
 export const setCurrentPage = (page: number) => ({type: 'SET_CURRENT_PAGE', currentPage: page})
 export const setTotalCount = (count: number) => ({type: 'SET_TOTAL_COUNT', totalUsersCount: count})
 export const setIsFetching = (newIsFetching: boolean) => ({type: 'TOGGLE_IS_FETCHING', newIsFetching})
+export const disableBtn = (isFetching: boolean, id: string) => ({type: 'TOGGLE_IS_FOLLOWING_PROGRESS', isFetching, id})
 
 export default usersReducer
