@@ -5,7 +5,6 @@ import {AppStateType} from "../../Redux/redux-store";
 import {Dispatch} from "redux";
 import {PostLogic} from "./PostLogic/PostLogic";
 import Profile from "./Profile";
-import axios from "axios";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {usersAPI} from "../../api/api";
 

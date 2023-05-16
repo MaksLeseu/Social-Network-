@@ -90,11 +90,11 @@
     margin-bottom: 24px;
     display: block;
 }
-.dialogs__dialog:hover {
+/*.dialogs__dialog:hover {
     background-color: #E0EAFF;
     border-radius: 10px;
     border: 1px solid #92B1ED;
-}
+}*/
 .dialogs__dialog a.active {
     background-color: #E0EAFF;
     border-radius: 10px;

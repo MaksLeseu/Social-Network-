@@ -6,10 +6,10 @@ import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../api/api";
 
 type UsersCPropsType = {
-    currentPage: any
+    currentPage: number
     usersData: any
-    pageSize: any
-    totalUsersCount: any
+    pageSize: number
+    totalUsersCount: number
     follow: (id: string) => void
     unfollow :(id: string) => void
     onPageChanged: (pageNumber: number) => void

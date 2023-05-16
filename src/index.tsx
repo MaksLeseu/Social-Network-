@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
-import {Header} from "./components/Header/Header";
 import {BrowserRouter} from "react-router-dom";
 import HeaderContainer from "./components/Header/HeaderContainer";
 

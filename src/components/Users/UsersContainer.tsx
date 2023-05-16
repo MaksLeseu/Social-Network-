@@ -2,16 +2,13 @@ import React from "react";
 import {connect} from "react-redux";
 import {
     disableBtn,
-    follow,
+    followAC,
     setCurrentPage, setIsFetching,
-    setTotalCount, setUsers, unfollow,
+    setTotalCount, setUsers, unfollowAC,
     UsersDataType,
-    UsersInitialStateType
 } from "../../Redux/users-reducer";
-import {AppStateType} from "../../Redux/redux-store";
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
-import axios from "axios";
 import {usersAPI} from "../../api/api";
 
 type MapStatePropsType = {
@@ -39,8 +36,8 @@ type UsersAPIComponentType = {
     isFetching: boolean
     totalUsersCount: number
     setUsers: (users: UsersDataType[]) => void
-    follow: (id: string) => void
-    unfollow :(id: string) => void
+    followAC: (id: string) => void
+    unfollowAC :(id: string) => void
     setCurrentPage: (page: number) => void
     setTotalCount: (count: number) => void
     setIsFetching: (newIsFetching: boolean) => void
@@ -77,8 +74,8 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
                         usersData={this.props.usersData}
                         pageSize={this.props.pageSize}
                         totalUsersCount={this.props.totalUsersCount}
-                        follow={this.props.follow}
-                        unfollow={this.props.unfollow}
+                        follow={this.props.followAC}
+                        unfollow={this.props.unfollowAC}
                         onPageChanged={this.onPageChanged}
                         followingInProgress={this.props.followingInProgress}
                         disableBtn={this.props.disableBtn}
@@ -121,4 +118,4 @@ let mapStateToProps = (state: any): MapStatePropsType => {
     }
 }*/
 
-export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalCount, setIsFetching, disableBtn})(UsersContainer)
+export default connect(mapStateToProps, {followAC, unfollowAC, setUsers, setCurrentPage, setTotalCount, setIsFetching, disableBtn})(UsersContainer)
