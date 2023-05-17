@@ -28,6 +28,50 @@ const UsersC: FC<UsersCPropsType> = (props) => {
         }
     }
 
+    const followOnClick = (id: string) => {
+        props.disableBtn(true, id)
+        usersAPI.unfollow(id)
+            .then(responce => {
+                if (responce.data.resultCode === 0) {
+                    props.follow(id)
+                }
+                props.disableBtn(false, id)
+            })
+    }
+
+    /*() => {
+        props.disableBtn(true, u.id)
+        usersAPI.unfollow(u.id)
+            .then(responce => {
+                if (responce.data.resultCode === 0) {
+                    props.follow(u.id)
+                }
+                props.disableBtn(false, u.id)
+            })
+    }*/
+
+    const unfollowOnClick = (id: string) => {
+        props.disableBtn(true, id)
+        usersAPI.follow(id)
+            .then(responce => {
+                if (responce.data.resultCode === 0) {
+                    props.unfollow(id)
+                }
+                props.disableBtn(false, id)
+            })
+    }
+
+    /*() => {
+        props.disableBtn(true, u.id)
+        usersAPI.follow(u.id)
+            .then(responce => {
+                if (responce.data.resultCode === 0) {
+                    props.unfollow(u.id)
+                }
+                props.disableBtn(false, u.id)
+            })
+    }*/
+
     return (
         <div className={s.container}>
             {
@@ -42,31 +86,13 @@ const UsersC: FC<UsersCPropsType> = (props) => {
                                 <button
                                     disabled={props.followingInProgress.some((id: any) => id === u.id)}
                                     className={`${s.btn} ${s.btnActive}`}
-                                    onClick={() => {
-                                        props.disableBtn(true, u.id)
-                                        usersAPI.unfollow(u.id)
-                                            .then(responce => {
-                                                if (responce.data.resultCode === 0) {
-                                                    props.follow(u.id)
-                                                }
-                                                props.disableBtn(false, u.id)
-                                            })
-                                    }}
+                                    onClick={() => followOnClick(u.id)}
                                 >Unfollow</button>
                                 :
                                 <button
                                     disabled={props.followingInProgress.some((id: any) => id === u.id)}
                                     className={s.btn}
-                                    onClick={() => {
-                                        props.disableBtn(true, u.id)
-                                        usersAPI.follow(u.id)
-                                            .then(responce => {
-                                                if (responce.data.resultCode === 0) {
-                                                    props.unfollow(u.id)
-                                                }
-                                                props.disableBtn(false, u.id)
-                                            })
-                                    }}
+                                    onClick={() => unfollowOnClick(u.id)}
                                 >Follow</button>}</div>
                         </div>
                         <div className={s.user}>
