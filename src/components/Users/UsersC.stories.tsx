@@ -2,9 +2,8 @@ import React from "react";
 import UsersC from "./UsersC";
 import {BrowserRouter} from "react-router-dom";
 import {action} from "@storybook/addon-actions";
-import {followAC, unfollowAC} from '../../Redux/users-reducer'
-import {Provider, useDispatch} from "react-redux";
-import store from "../../Redux/redux-store";
+import {UserButton} from "./UsersNested/UserButton";
+import s from "./UsersNested/UsersNested.module.css";
 
 export default {
     title: 'Users',
@@ -110,4 +109,23 @@ export const Example1 = (props: any) => {
             />
         </BrowserRouter>
     )
+}
+
+const callback = action('Happen onClick')
+
+export const Example2 = () => {
+    return <UserButton
+        title={'Follow'}
+        id={'userId'}
+        className={`${s.btn}`}
+        onClick={callback}
+        disabled={null} />
+}
+export const Example3 = () => {
+    return <UserButton
+        title={'Unfollow'}
+        id={'userId'}
+        className={`${s.btn} ${s.btnActive}`}
+        onClick={callback}
+        disabled={null} />
 }
