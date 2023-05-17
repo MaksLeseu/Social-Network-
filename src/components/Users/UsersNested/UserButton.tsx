@@ -1,27 +1,21 @@
-import React from 'react';
-import s from "./UsersNested.module.css";
-import {usersAPI} from "../../../api/api";
+import React, {FC} from 'react';
 
 type UserButtonPropsType = {
     title: string
-
+    id: string
+    className: string
+    onClick: (id: string) => void
+    disabled: any
 }
 
-/*export const UserButton = () => {
+export const UserButton: FC<UserButtonPropsType> = (props) => {
     return (
         <button
-            disabled={props.followingInProgress.some((id: any) => id === u.id)}
-            className={`${s.btn} ${s.btnActive}`}
-            onClick={() => {
-                props.disableBtn(true, u.id)
-                usersAPI.unfollow(u.id)
-                    .then(responce => {
-                        if (responce.data.resultCode === 0) {
-                            props.follow(u.id)
-                        }
-                        props.disableBtn(false, u.id)
-                    })
-            }}
-        >Unfollow</button>
+            disabled={props.disabled}
+            className={props.className}
+            onClick={() => props.onClick(props.id)}
+        >
+            {props.title}
+        </button>
     );
-};*/
+};
