@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {
     disableBtn,
-    followAC,
+    followAC, getUsersThunkCreator,
     setCurrentPage, setIsFetching,
     setTotalCount, setUsers, unfollowAC,
     UsersDataType,
@@ -43,16 +43,21 @@ type UsersAPIComponentType = {
     setIsFetching: (newIsFetching: boolean) => void
     followingInProgress: any
     disableBtn: (isFetching: boolean, id: string) => void
+    getUsersThunkCreator: any
 }
 
 class UsersContainer extends React.Component<UsersAPIComponentType> {
 
     componentDidMount () {
+        this.props.getUsersThunkCreator()
+
+        /*this.props.setIsFetching(true)
         usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
             .then(responce => {
+            this.props.setIsFetching(false)
             this.props.setUsers(responce.data.items)
             this.props.setTotalCount(responce.data.totalCount)
-        })
+        })*/
     }
 
     onPageChanged = (pageNumber: number) => {
@@ -118,4 +123,7 @@ let mapStateToProps = (state: any): MapStatePropsType => {
     }
 }*/
 
-export default connect(mapStateToProps, {followAC, unfollowAC, setUsers, setCurrentPage, setTotalCount, setIsFetching, disableBtn})(UsersContainer)
+export default connect(mapStateToProps,
+    {followAC, unfollowAC, setUsers,
+        setCurrentPage, setTotalCount, setIsFetching,
+        disableBtn, getUsersThunkCreator})(UsersContainer)

@@ -1,9 +1,10 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import messagesReducer from "./messages-reducer";
 import {sidebarRightReducer} from "./sidebarRigth-reducer";
 import usersReducer from "./users-reducer";
 import authReducer, {UsersInitialStateType} from "./auth-reducer";
+import thunkMiddleware from "redux-thunk"
 
 type ContentAcType = {
     type: 'ADD-POST'
@@ -56,7 +57,7 @@ let reducers = combineReducers({
     auth: authReducer,
 })
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 export type AppStateType = ReturnType<typeof reducers>
 

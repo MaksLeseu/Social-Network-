@@ -1,6 +1,8 @@
 import React from "react";
 import {ActionsType} from "./redux-store";
 import {log} from "util";
+import {Dispatch} from "redux";
+import {usersAPI} from "../api/api";
 
 export type  UsersDataType = {
     id: string
@@ -74,5 +76,18 @@ export const setCurrentPage = (page: number) => ({type: 'SET_CURRENT_PAGE', curr
 export const setTotalCount = (count: number) => ({type: 'SET_TOTAL_COUNT', totalUsersCount: count})
 export const setIsFetching = (newIsFetching: boolean) => ({type: 'TOGGLE_IS_FETCHING', newIsFetching})
 export const disableBtn = (isFetching: boolean, id: string) => ({type: 'TOGGLE_IS_FOLLOWING_PROGRESS', isFetching, id})
+
+
+export const getUsersThunkCreator = (currentPage: number, pageSize: number) => (dispatch: Dispatch) => {
+    dispatch(setIsFetching(true))
+    usersAPI.getUsers(currentPage, pageSize)
+        .then(response => {
+            dispatch(setIsFetching(false))
+            dispatch(setUsers(response.data.items))
+            dispatch(setTotalCount(response.data.totalCount))
+        })
+}
+
+
 
 export default usersReducer
