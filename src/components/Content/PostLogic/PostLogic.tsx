@@ -11,12 +11,12 @@ type PostLogicPropsType = {
 }
 
 export const PostLogic: FC<PostLogicPropsType> = (props) => {
+    const userImg = props.img || logo1
     return (
         <div className={'my-posts'}>
             <div className={'my-posts__box'}>
                 <div className={'my-posts__image'}>
-                    {/*<img src={props.img ? props.img.photos.large : logo1} />*/}
-                    <img src={props.params.userId || props.img ? logo1 : account_icon} />
+                    <img src={props.params.userId ? userImg : account_icon} />
                 </div>
                 <p className={'my-posts__text'}>{props.message}</p>
             </div>

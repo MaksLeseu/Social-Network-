@@ -22,7 +22,7 @@ export type ElementPostsDataType = {
 class ProfileContainer extends React.Component<any> {
 
     componentDidMount() {
-        let profileId = this.props.router.params.profileId;
+        let profileId = this.props.router.params.userId;
         /*axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId}`)*/
         /*usersAPI.getProfile(profileId)
             .then(responce => {
@@ -37,7 +37,7 @@ class ProfileContainer extends React.Component<any> {
                 message={el.message}
                 level={el.level}
                 key={el.id}
-                img={this.props.state.profile}
+                img={this.props.state.profile && this.props.state.profile.photos.small}
                 params={this.props.router.params} />);
 
         return (
