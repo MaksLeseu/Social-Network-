@@ -4,6 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import {action} from "@storybook/addon-actions";
 import {UserButton} from "./UsersNested/UserButton";
 import s from "./UsersNested/UsersNested.module.css";
+import {followTC, unfollowTC} from "../../Redux/users-reducer";
 
 export default {
     title: 'Users',
@@ -101,11 +102,10 @@ export const Example1 = (props: any) => {
                 usersData={usersData}
                 pageSize={5} // 8
                 totalUsersCount={14} // 0
-                follow={follow}
-                unfollow={unfollow}
                 onPageChanged={onPageChanged}
                 followingInProgress={[]}
-                disableBtn={disableBtn}
+                followTC={followTC}
+                unfollowTC={unfollowTC}
             />
         </BrowserRouter>
     )

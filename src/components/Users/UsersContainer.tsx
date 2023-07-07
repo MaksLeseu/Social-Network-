@@ -2,8 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {
     disableBtn,
-    followAC, getUsersTC,
-    setCurrentPage, unfollowAC,
+    followAC, followTC, getUsersTC,
+    setCurrentPage, unfollowAC, unfollowTC,
     UsersDataType,
 } from "../../Redux/users-reducer";
 import UsersC from "./UsersC";
@@ -33,12 +33,11 @@ type UsersAPIComponentType = {
     pageSize: number
     isFetching: boolean
     totalUsersCount: number
-    followAC: (id: string) => void
-    unfollowAC :(id: string) => void
     setCurrentPage: (page: number) => void
     followingInProgress: any
-    disableBtn: (isFetching: boolean, id: string) => void
-    getUsersTC: any
+    getUsersTC: (currentPage: number, pageSize: number) => void
+    followTC: (id: string) => void
+    unfollowTC: (id: string) => void
 }
 
 class UsersContainer extends React.Component<UsersAPIComponentType> {
@@ -60,11 +59,10 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
                         usersData={this.props.usersData}
                         pageSize={this.props.pageSize}
                         totalUsersCount={this.props.totalUsersCount}
-                        follow={this.props.followAC}
-                        unfollow={this.props.unfollowAC}
                         onPageChanged={this.onPageChanged}
                         followingInProgress={this.props.followingInProgress}
-                        disableBtn={this.props.disableBtn}
+                        followTC={this.props.followTC}
+                        unfollowTC={this.props.unfollowTC}
                     />}
             </>
         )
@@ -105,5 +103,5 @@ let mapStateToProps = (state: any): MapStatePropsType => {
 }*/
 
 export default connect(mapStateToProps,
-    {followAC, unfollowAC, setCurrentPage,
-        disableBtn, getUsersTC})(UsersContainer)
+    {setCurrentPage, getUsersTC,
+        followTC, unfollowTC})(UsersContainer)

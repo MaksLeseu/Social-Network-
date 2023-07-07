@@ -87,6 +87,26 @@ export const getUsersTC = (currentPage: number, pageSize: number) => (dispatch: 
         })
 }
 
+export const followTC = (id: string) => (dispatch: Dispatch) => {
+    dispatch(disableBtn(true, id))
+    usersAPI.unfollow(id)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(followAC(id))
+            }
+            dispatch(disableBtn(false, id))
+        })
+}
 
+export const unfollowTC = (id: string) => (dispatch: Dispatch) => {
+    dispatch(disableBtn(true, id))
+    usersAPI.follow(id)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(unfollowAC(id))
+            }
+            dispatch(disableBtn(false, id))
+        })
+}
 
 export default usersReducer
