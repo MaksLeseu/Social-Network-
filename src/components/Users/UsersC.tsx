@@ -3,7 +3,6 @@ import s from "./UsersNested/UsersNested.module.css";
 import {UsersDataType} from "../../Redux/users-reducer";
 import logo1 from "../../img/logo1.png";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 import {UserButton} from "./UsersNested/UserButton";
 
 type UsersCPropsType = {

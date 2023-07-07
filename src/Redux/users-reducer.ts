@@ -1,5 +1,3 @@
-import React from "react";
-import {ActionsType} from "./redux-store";
 import {Dispatch} from "redux";
 import {usersAPI} from "../api/api";
 
@@ -79,6 +77,7 @@ export const disableBtn = (isFetching: boolean, id: string) => ({type: 'TOGGLE_I
 
 export const getUsersTC = (currentPage: number, pageSize: number) => (dispatch: Dispatch) => {
     dispatch(setIsFetching(true))
+    dispatch(setCurrentPage(currentPage))
     usersAPI.getUsers(currentPage, pageSize)
         .then(response => {
             dispatch(setIsFetching(false))

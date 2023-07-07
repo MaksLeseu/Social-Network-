@@ -3,6 +3,7 @@ import {PersonalInformation} from "./NestedComponents/PersonalInformation/Person
 import {InputField} from "./NestedComponents/InputField/InputField";
 import {Posts} from "./NestedComponents/Posts/Posts";
 import {ProfilePropsType} from "./ProfileContainer";
+import {addPostActionCreator} from "../../Redux/profile-reducer";
 
 /*export const Profile: FC<ProfilePropsType> = (props) => {
 
@@ -30,7 +31,7 @@ class Profile extends React.Component<ProfilePropsType> {
                 :
                 <>
                     <PersonalInformation />
-                    <InputField addPostCallback={this.props.addPostCallback} />
+                    <InputField addPostCallback={this.props.addPostActionCreator} />
                     <Posts postsElements={this.props.postsElements} />
                 </>
             }

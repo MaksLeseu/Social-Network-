@@ -1,5 +1,10 @@
 import React from "react";
-import {addPostActionCreator, ContentInitialStateType, setUserProfileAC} from "../../Redux/profile-reducer";
+import {
+    addPostActionCreator,
+    ContentInitialStateType,
+    getProfileTC,
+    setUserProfileAC
+} from "../../Redux/profile-reducer";
 import {connect} from "react-redux";
 import {AppStateType} from "../../Redux/redux-store";
 import {Dispatch} from "redux";
@@ -19,10 +24,11 @@ class ProfileContainer extends React.Component<any> {
     componentDidMount() {
         let profileId = this.props.router.params.profileId;
         /*axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId}`)*/
-        usersAPI.getProfile(profileId)
+        /*usersAPI.getProfile(profileId)
             .then(responce => {
             this.props.setUserProfile(responce.data)
-        })
+        })*/
+        this.props.getProfileTC(profileId)
     }
 
     render() {
@@ -57,7 +63,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
         state: state.profilePage
     }
 }
-let mapDispatchToProps = (dispatch: Dispatch): MapDispatchProps => {
+/*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchProps => {
     return {
         addPostCallback: (valueInput: string) => {
             dispatch(addPostActionCreator(valueInput))
@@ -66,7 +72,7 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchProps => {
             dispatch(setUserProfileAC(profile))
         }
     }
-}
+}*/
 
 function withRouter(Component: any) {
     function ComponentWithRouterProp(props: any) {
@@ -86,4 +92,6 @@ function withRouter(Component: any) {
 
 let WitchUrlContainerComponent = withRouter(ProfileContainer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(WitchUrlContainerComponent)
+export default connect(mapStateToProps,
+    {addPostActionCreator, setUserProfileAC,
+        getProfileTC})(WitchUrlContainerComponent)
