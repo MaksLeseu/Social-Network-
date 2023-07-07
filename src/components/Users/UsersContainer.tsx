@@ -2,14 +2,12 @@ import React from "react";
 import {connect} from "react-redux";
 import {
     disableBtn,
-    followAC, getUsersThunkCreator,
-    setCurrentPage, setIsFetching,
-    setTotalCount, setUsers, unfollowAC,
+    followAC, getUsersTC,
+    setCurrentPage, unfollowAC,
     UsersDataType,
 } from "../../Redux/users-reducer";
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
-import {usersAPI} from "../../api/api";
 
 type MapStatePropsType = {
     usersData: any
@@ -35,39 +33,22 @@ type UsersAPIComponentType = {
     pageSize: number
     isFetching: boolean
     totalUsersCount: number
-    setUsers: (users: UsersDataType[]) => void
     followAC: (id: string) => void
     unfollowAC :(id: string) => void
     setCurrentPage: (page: number) => void
-    setTotalCount: (count: number) => void
-    setIsFetching: (newIsFetching: boolean) => void
     followingInProgress: any
     disableBtn: (isFetching: boolean, id: string) => void
-    getUsersThunkCreator: any
+    getUsersTC: any
 }
 
 class UsersContainer extends React.Component<UsersAPIComponentType> {
 
     componentDidMount () {
-        this.props.getUsersThunkCreator()
-
-        /*this.props.setIsFetching(true)
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(responce => {
-            this.props.setIsFetching(false)
-            this.props.setUsers(responce.data.items)
-            this.props.setTotalCount(responce.data.totalCount)
-        })*/
+        this.props.getUsersTC(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber: number) => {
-        this.props.setCurrentPage(pageNumber)
-        this.props.setIsFetching(true)
-        usersAPI.pageChanged(pageNumber, this.props.pageSize)
-            .then(responce => {
-            this.props.setUsers(responce.data.items)
-            this.props.setIsFetching(false)
-        })
+        this.props.getUsersTC(pageNumber, this.props.pageSize)
     }
 
     render () {
@@ -124,6 +105,5 @@ let mapStateToProps = (state: any): MapStatePropsType => {
 }*/
 
 export default connect(mapStateToProps,
-    {followAC, unfollowAC, setUsers,
-        setCurrentPage, setTotalCount, setIsFetching,
-        disableBtn, getUsersThunkCreator})(UsersContainer)
+    {followAC, unfollowAC, setCurrentPage,
+        disableBtn, getUsersTC})(UsersContainer)
