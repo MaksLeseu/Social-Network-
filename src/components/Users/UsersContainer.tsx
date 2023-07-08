@@ -9,6 +9,7 @@ import {
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
 import {Navigate} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 type MapStatePropsType = {
     usersData: any
@@ -17,7 +18,6 @@ type MapStatePropsType = {
     currentPage: number
     isFetching: boolean
     followingInProgress: any
-    isAuth: boolean
 }
 type MapDispatchPropsType = {
     follow: (id: string) => void
@@ -81,7 +81,6 @@ let mapStateToProps = (state: any): MapStatePropsType => {
         currentPage: state.users.currentPage,
         isFetching: state.users.isFetching,
         followingInProgress: state.users.followingInProgress,
-        isAuth: state.auth.isAuth
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
@@ -106,7 +105,8 @@ let mapStateToProps = (state: any): MapStatePropsType => {
         }
     }
 }*/
+let AuthRedirectComponent = withAuthRedirect(UsersContainer)
 
 export default connect(mapStateToProps,
     {setCurrentPage, getUsersTC,
-        followTC, unfollowTC})(UsersContainer)
+        followTC, unfollowTC})(AuthRedirectComponent)

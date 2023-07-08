@@ -12,6 +12,7 @@ import {PostLogic} from "./PostLogic/PostLogic";
 import Profile from "./Profile";
 import {Navigate, useLocation, useNavigate, useParams} from "react-router-dom";
 import {usersAPI} from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 export type ElementPostsDataType = {
     id: string
@@ -32,7 +33,6 @@ class ProfileContainer extends React.Component<any> {
     }
 
     render() {
-        if (!this.props.isAuth) return <Navigate to={'/login'} />;
         let postsElements = this.props.state.posts.map((el: ElementPostsDataType) =>
             <PostLogic
                 message={el.message}
@@ -51,7 +51,6 @@ class ProfileContainer extends React.Component<any> {
 
 type MapStatePropsType = {
     state: ContentInitialStateType
-    isAuth: boolean
 }
 type MapDispatchProps = {
     addPostCallback: (valueInput: string) => void
@@ -63,7 +62,6 @@ export type ProfilePropsType = MapStatePropsType & MapDispatchProps & PostsEleme
 let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         state: state.profilePage,
-        isAuth: state.auth['isAuth']
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchProps => {
@@ -93,7 +91,9 @@ function withRouter(Component: any) {
     return ComponentWithRouterProp;
 }
 
-let WitchUrlContainerComponent = withRouter(ProfileContainer)
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
+
+let WitchUrlContainerComponent = withRouter(AuthRedirectComponent)
 
 export default connect(mapStateToProps,
     {addPostActionCreator, setUserProfileAC,
