@@ -10,7 +10,7 @@ import {AppStateType} from "../../Redux/redux-store";
 import {Dispatch} from "redux";
 import {PostLogic} from "./PostLogic/PostLogic";
 import Profile from "./Profile";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {Navigate, useLocation, useNavigate, useParams} from "react-router-dom";
 import {usersAPI} from "../../api/api";
 
 export type ElementPostsDataType = {
@@ -32,6 +32,7 @@ class ProfileContainer extends React.Component<any> {
     }
 
     render() {
+        if (!this.props.isAuth) return <Navigate to={'/login'} />;
         let postsElements = this.props.state.posts.map((el: ElementPostsDataType) =>
             <PostLogic
                 message={el.message}
@@ -50,6 +51,7 @@ class ProfileContainer extends React.Component<any> {
 
 type MapStatePropsType = {
     state: ContentInitialStateType
+    isAuth: boolean
 }
 type MapDispatchProps = {
     addPostCallback: (valueInput: string) => void
@@ -60,7 +62,8 @@ export type ProfilePropsType = MapStatePropsType & MapDispatchProps & PostsEleme
 
 let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
-        state: state.profilePage
+        state: state.profilePage,
+        isAuth: state.auth['isAuth']
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchProps => {

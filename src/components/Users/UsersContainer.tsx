@@ -8,6 +8,7 @@ import {
 } from "../../Redux/users-reducer";
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
+import {Navigate} from "react-router-dom";
 
 type MapStatePropsType = {
     usersData: any
@@ -16,6 +17,7 @@ type MapStatePropsType = {
     currentPage: number
     isFetching: boolean
     followingInProgress: any
+    isAuth: boolean
 }
 type MapDispatchPropsType = {
     follow: (id: string) => void
@@ -38,6 +40,7 @@ type UsersAPIComponentType = {
     getUsersTC: (currentPage: number, pageSize: number) => void
     followTC: (id: string) => void
     unfollowTC: (id: string) => void
+    isAuth: boolean
 }
 
 class UsersContainer extends React.Component<UsersAPIComponentType> {
@@ -63,6 +66,7 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
                         followingInProgress={this.props.followingInProgress}
                         followTC={this.props.followTC}
                         unfollowTC={this.props.unfollowTC}
+                        isAuth={this.props.isAuth}
                     />}
             </>
         )
@@ -76,7 +80,8 @@ let mapStateToProps = (state: any): MapStatePropsType => {
         totalUsersCount: state.users.totalUsersCount,
         currentPage: state.users.currentPage,
         isFetching: state.users.isFetching,
-        followingInProgress: state.users.followingInProgress
+        followingInProgress: state.users.followingInProgress,
+        isAuth: state.auth.isAuth
     }
 }
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {

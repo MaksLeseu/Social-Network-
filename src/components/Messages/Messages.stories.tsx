@@ -34,7 +34,7 @@ const callback = action('Message was sending')
 export const Example1 = () => {
     return (
         <BrowserRouter>
-            <Messages state={initialState} addMessageCallback={callback} />
+            <Messages state={initialState} addMessageCallback={callback} isAuth={false} />
         </BrowserRouter>
     )
 }

@@ -5,6 +5,7 @@ import {Dialogs} from "./NestedComponents/Dialogs/Dialogs";
 import {DialogLogic} from "./DialogLogic/DialogLogic";
 import {ChatLogic} from "./ChatLogic/ChatLogic";
 import {MessagesPropsType} from "./MessagesContainer";
+import {Navigate} from "react-router-dom";
 
 type UsersMessagesElementType = {
     id: string
@@ -24,6 +25,8 @@ export const Messages: FC<MessagesPropsType> = (props) => {
 
     let usersMessagesElement = props.state.usersMessage.map((el: UsersMessagesElementType) =>
         <ChatLogic text={el.message} id={el.id}/> )
+
+    if (!props.isAuth) return <Navigate to={'/login'} />;
 
     return (
         <div className={s.messages}>

@@ -40,7 +40,6 @@ const profileReducer: ProfileReducerType = (state = initialState, action): Conte
         default: return state
     }
 }
-console.log(initialState.profile)
 
 export const addPostActionCreator: AddPostActionCreatorType = (state: string) => ({type: 'ADD-POST', message: state})
 export const setUserProfileAC: SetUserProfileACType = (profile: any) => ({type: 'SET_USERS_PROFILE', profile: profile})

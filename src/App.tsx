@@ -11,6 +11,7 @@ import {MessagesContainer} from "./components/Messages/MessagesContainer";
 import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarRight";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Content/ProfileContainer";
+import {Login} from "./components/Login/Login";
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
                         <Route path={'/settings'} element={<Settings />}/>
                         <Route path={'/developers'} element={<Developers />}/>
                         <Route path={'/technologies'} element={<Technologies />}/>
+                        <Route path={'/login'} element={<Login />}/>
                     </Routes>
                 </div>
                 <ContainerSidebarRight />
