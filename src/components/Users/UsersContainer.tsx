@@ -10,6 +10,7 @@ import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
 import {Navigate} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 type MapStatePropsType = {
     usersData: any
@@ -83,6 +84,19 @@ let mapStateToProps = (state: any): MapStatePropsType => {
         followingInProgress: state.users.followingInProgress,
     }
 }
+
+export default compose(
+    connect(mapStateToProps,
+        {setCurrentPage, getUsersTC,
+            followTC, unfollowTC}),
+    withAuthRedirect
+)(UsersContainer)
+
+/*let AuthRedirectComponent = withAuthRedirect(UsersContainer)
+
+export default connect(mapStateToProps,
+    {setCurrentPage, getUsersTC,
+        followTC, unfollowTC})(AuthRedirectComponent)*/
 /*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     return {
         follow: (id: string) => {
@@ -105,8 +119,3 @@ let mapStateToProps = (state: any): MapStatePropsType => {
         }
     }
 }*/
-let AuthRedirectComponent = withAuthRedirect(UsersContainer)
-
-export default connect(mapStateToProps,
-    {setCurrentPage, getUsersTC,
-        followTC, unfollowTC})(AuthRedirectComponent)

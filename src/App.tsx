@@ -7,11 +7,11 @@ import {Acquaintance} from "./components/Acquaintance/Acquaintance";
 import {Settings} from "./components/Settings/Settings";
 import {Developers} from "./components/Developers/Developers";
 import {Technologies} from "./components/Technologies/Technologies";
-import {MessagesContainer} from "./components/Messages/MessagesContainer";
+import MessagesContainer from "./components/Messages/MessagesContainer";
 import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarRight";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Content/ProfileContainer";
 import {Login} from "./components/Login/Login";
+import ProfileContainer from "./components/Content/ProfileContainer";
 
 const App = () => {
 
