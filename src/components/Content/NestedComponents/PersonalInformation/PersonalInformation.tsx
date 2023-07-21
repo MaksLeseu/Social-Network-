@@ -5,11 +5,14 @@ import subscription from "../../../../img/personal_information/user plus.svg";
 import phone from "../../../../img/personal_information/phone.svg";
 import email from "../../../../img/personal_information/mail.svg";
 import birthday from "../../../../img/personal_information/Birthday.svg";
-import React from "react";
+import React, {useState} from "react";
 import './PersonalInformation.css'
+import {Status} from "../Status/Status";
 
 
-export function PersonalInformation() {
+export const PersonalInformation = () => {
+    const [statusValue, setStatusValue] = useState<string>('I fell happy!')
+
     return (
         <div className={'personal-information'}>
             <div className={'personal-information__account'}>
@@ -21,6 +24,7 @@ export function PersonalInformation() {
                     <span>Max_LesoVoj</span>
                 </div>
             </div>
+            <Status status={statusValue} setStatusValue={setStatusValue} />
             <div className={'personal-information__menu'}>
                 <div className={'personal-information__menu-publications personal-information__menu-list'}>
                     <img src={publications} />

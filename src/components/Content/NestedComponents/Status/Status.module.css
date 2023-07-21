@@ -1,0 +1,58 @@
+.statusProfile {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.status {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    padding: 5px 5px 5px 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+.status:hover {
+    transition: all 0.3s ease-out;
+    border: 1px #92B1ED solid;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px;
+}
+
+.statusInput {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-out;
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+    border: 1px #92B1ED solid;
+    border-radius: 4px;
+    padding: 5px 10px 5px 10px;
+    box-shadow: 1px 1px 5px;
+}
+
+.input {
+    height: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.statusInputBtn {
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #1ea7fd;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.statusContainer {
+    display: flex;
+}
+
+.statusContainer span {
+    font-size: 16px;
+}
