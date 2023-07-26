@@ -5,26 +5,49 @@ import subscription from "../../../../img/personal_information/user plus.svg";
 import phone from "../../../../img/personal_information/phone.svg";
 import email from "../../../../img/personal_information/mail.svg";
 import birthday from "../../../../img/personal_information/Birthday.svg";
-import React, {useState} from "react";
+import React from "react";
 import './PersonalInformation.css'
 import {Status} from "../Status/Status";
+import logo1 from "../../../../img/logo1.png";
+
+type PersonalInformationPropsType = {
+    img?: any
+    status: string
+    updateStatus: any
+    profile: any
+}
 
 
-export const PersonalInformation = () => {
-    const [statusValue, setStatusValue] = useState<string>('I fell happy!')
-
+export const PersonalInformation = (props: PersonalInformationPropsType) => {
+    let userImg
+    const uImg = props.img || logo1
+    if (props.profile) {
+        userImg = props.profile.userId === 28887 ?  account_icon : uImg
+    } else {
+        userImg = logo1
+    }
     return (
         <div className={'personal-information'}>
             <div className={'personal-information__account'}>
                 <div className={'personal-information__account-img'}>
-                    <img src={account_icon} />
+                    <img src={userImg} />
                 </div>
                 <div className={'personal-information__account-name'}>
-                    <p>Max Lesev</p>
-                    <span>Max_LesoVoj</span>
+                    <p>
+                        {props.profile ? props.profile.fullName : 'Max Lesev'}
+                    </p>
+                    <span>
+                        {props.profile ? props.profile.userId : 'Max_LesoVoj'}
+                    </span>
                 </div>
             </div>
-            <Status status={statusValue} setStatusValue={setStatusValue} />
+            <>{
+                props.status
+                    ?
+                <Status status={props.status} updateStatus={props.updateStatus} />
+                    :
+                null
+            }</>
             <div className={'personal-information__menu'}>
                 <div className={'personal-information__menu-publications personal-information__menu-list'}>
                     <img src={publications} />
@@ -56,19 +79,25 @@ export const PersonalInformation = () => {
                         <img src={phone} />
                         <div className={'personal-information__contact-text'}>
                             <p>Phone</p>
-                            <span>(708) 813-8989</span>
+                            <span>
+                                (48) 813-8989
+                            </span>
                         </div>
                     </div><div className={'personal-information__contact-phone personal-information__contact-list'}>
                     <img src={email} />
                     <div className={'personal-information__contact-text'}>
                         <p>Email</p>
-                        <span>lesov0iblr@gmail.com</span>
+                        <span>
+                            lesov0iblr@gmail.com
+                        </span>
                     </div>
                 </div><div className={'personal-information__contact-phone personal-information__contact-list'}>
                     <img src={birthday} />
                     <div className={'personal-information__contact-text'}>
                         <p>Birthday</p>
-                        <span>March, 15</span>
+                        <span>
+                            March, 15
+                        </span>
                     </div>
                 </div>
                 </div>

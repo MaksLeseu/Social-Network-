@@ -1,28 +1,31 @@
-import React, {SetStateAction, useState} from "react";
+import React from "react";
 import s from './Status.module.css'
-import {Dispatch} from "redux";
 
 type StatusPropsType = {
     status: string
-    setStatusValue: any
+    updateStatus: any
 }
 
 export class Status extends React.Component<StatusPropsType, any>{
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
-    activateEditMode() {
+    activateEditMode = () => {
         this.setState({
             editMode: true
-        })
+        });
     }
-    onChange() {
-
-    }
-    deactivateEditMode() {
+    deactivateEditMode = () => {
         this.setState({
             editMode: false
+        });
+        this.props.updateStatus(this.state.status)
+    }
+    onStatusChange = (e: any) => {
+        this.setState({
+            status: e.currentTarget.value
         })
     }
 
@@ -32,15 +35,15 @@ export class Status extends React.Component<StatusPropsType, any>{
                 {
                     !this.state.editMode
                         ?
-                        <div className={s.status} onClick={this.activateEditMode.bind(this)}>
+                        <div className={s.status} onClick={this.activateEditMode}>
                             <div className={s.statusContainer}>
-                                <span>{this.props.status}</span>
+                                <span>{this.state.status}</span>
                             </div>
                         </div>
                         :
                         <div className={s.statusInput}>
-                            <input value={this.props.status} className={s.input} onChange={this.onChange}/>
-                            <button className={s.statusInputBtn} onClick={this.deactivateEditMode.bind(this)}>Save</button>
+                            <input value={this.state.status} className={s.input} onChange={this.onStatusChange}/>
+                            <button className={s.statusInputBtn} onClick={this.deactivateEditMode}>Save</button>
                         </div>
                 }
             </div>

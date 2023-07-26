@@ -47,7 +47,13 @@ type SetAuthUserDataAC = {
     data: UsersInitialStateType
 }
 
-export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType | ProfileACType | SetAuthUserDataAC | DisableButtonType
+type StatusType = {
+    type: 'SET_STATUS'
+    status: string
+}
+
+export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType
+    | ProfileACType | SetAuthUserDataAC | DisableButtonType | StatusType
 
 let reducers = combineReducers({
     profilePage: profileReducer,

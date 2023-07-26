@@ -2,8 +2,8 @@ import React from "react";
 import {
     addPostActionCreator,
     ContentInitialStateType,
-    getProfileTC,
-    setUserProfileAC
+    getProfileTC, getStatusTC,
+    setUserProfileAC, updateStatusTC
 } from "../../Redux/profile-reducer";
 import {connect} from "react-redux";
 import {AppStateType} from "../../Redux/redux-store";
@@ -33,7 +33,11 @@ class ProfileContainer extends React.Component<any> {
 
     componentDidMount() {
         let profileId = this.props.router.params.userId;
+        if (!profileId) {
+            profileId = 28887
+        }
         this.props.getProfileTC(profileId)
+        this.props.getStatusTC(profileId)
     }
 
     render() {
@@ -47,7 +51,12 @@ class ProfileContainer extends React.Component<any> {
 
         return (
             <div className={'profile'}>
-                <Profile postsElements={postsElements} {...this.props} />
+                <Profile
+                    postsElements={postsElements}
+                    {...this.props}
+                    state={this.props.state}
+                    status={this.props.state.status}
+                    updateStatusTC={this.props.updateStatusTC} />
             </div>
         )
     }
@@ -79,7 +88,7 @@ function withRouter(Component: any) {
 // Вызов идет по "конвееру". В начале оборачивает withAuthRedirect -> withRouter -> затем connect
 export default compose(
     withRouter,
-    connect(mapStateToProps, {addPostActionCreator, setUserProfileAC, getProfileTC}),
+    connect(mapStateToProps, {addPostActionCreator, setUserProfileAC, getProfileTC, getStatusTC, updateStatusTC}),
     withAuthRedirect
 )(ProfileContainer);
 

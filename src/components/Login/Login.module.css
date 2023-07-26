@@ -1,0 +1,50 @@
+.login {
+    width: 574px;
+    height: 302px;
+    background-color: #edf4ff;
+    border-radius: 20px;
+    border: 1px #B2EAEE solid;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    padding-top: 20px;
+}
+.login h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.form {
+    text-align: center;
+}
+
+.loginInput {
+    height: 30px;
+    border: 1px #B2EAEE solid;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.passwordInput {
+    height: 30px;
+    border: 1px #B2EAEE solid;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.checkboxInput {
+    margin-bottom: 10px;
+}
+
+.buttonInput {
+    width: 50px;
+    height: 30px;
+    background-color: #B2EAEE;
+    border: 1px black solid;
+    border-radius: 5px;
+    font-weight: 700;
+}

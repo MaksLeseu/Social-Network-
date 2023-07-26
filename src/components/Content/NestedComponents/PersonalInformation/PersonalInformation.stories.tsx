@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import {PersonalInformation} from "./PersonalInformation";
 
@@ -8,4 +9,5 @@ export default {
 
 export const Example1 = (props: any) => {
     return <PersonalInformation />
-}
+}*/
+export const a = 1
