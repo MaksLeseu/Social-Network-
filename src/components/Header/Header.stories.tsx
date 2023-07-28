@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import {Header} from "./Header";
 import {BrowserRouter} from "react-router-dom";
 
@@ -20,4 +20,5 @@ export const Example2 = (props: any) => {
             <Header isAuth={true} login={'Max'} />
         </BrowserRouter>
     )
-}
+}*/
+export const a = 1

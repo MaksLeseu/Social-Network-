@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Sidebar} from "./components/Sidebar/Sidebar";
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {News} from "./components/News/News";
 import {Acquaintance} from "./components/Acquaintance/Acquaintance";
 import {Settings} from "./components/Settings/Settings";
@@ -12,9 +12,11 @@ import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarR
 import UsersContainer from "./components/Users/UsersContainer";
 import {Login} from "./components/Login/Login";
 import ProfileContainer from "./components/Content/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import {useSelector} from "react-redux";
 
 const App = () => {
-
+    const appError = useSelector((state: any) => state.app.error)
     return (
             <main className={'container'}>
                 <Sidebar/>
@@ -30,6 +32,13 @@ const App = () => {
                         <Route path={'/technologies'} element={<Technologies />}/>
                         <Route path={'/login'} element={<Login />}/>
                     </Routes>
+                    {
+                        appError
+                            ?
+                            <div className={'errorClass'}>{appError}</div>
+                            :
+                            null
+                    }
                 </div>
                 <ContainerSidebarRight />
             </main>

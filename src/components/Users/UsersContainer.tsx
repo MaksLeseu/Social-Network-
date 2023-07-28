@@ -4,13 +4,14 @@ import {
     disableBtn,
     followAC, followTC, getUsersTC,
     setCurrentPage, unfollowAC, unfollowTC,
-    UsersDataType,
+    UsersDataType, UsersInitialStateType,
 } from "../../Redux/users-reducer";
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
 import {Navigate} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {AppStateType} from "../../Redux/redux-store";
 
 type MapStatePropsType = {
     usersData: any
@@ -41,7 +42,6 @@ type UsersAPIComponentType = {
     getUsersTC: (currentPage: number, pageSize: number) => void
     followTC: (id: string) => void
     unfollowTC: (id: string) => void
-    isAuth: boolean
 }
 
 class UsersContainer extends React.Component<UsersAPIComponentType> {
@@ -49,11 +49,9 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
     componentDidMount () {
         this.props.getUsersTC(this.props.currentPage, this.props.pageSize)
     }
-
     onPageChanged = (pageNumber: number) => {
         this.props.getUsersTC(pageNumber, this.props.pageSize)
     }
-
     render () {
         return (
             <>
@@ -67,7 +65,6 @@ class UsersContainer extends React.Component<UsersAPIComponentType> {
                         followingInProgress={this.props.followingInProgress}
                         followTC={this.props.followTC}
                         unfollowTC={this.props.unfollowTC}
-                        isAuth={this.props.isAuth}
                     />}
             </>
         )

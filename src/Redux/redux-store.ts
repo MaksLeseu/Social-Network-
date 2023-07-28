@@ -5,6 +5,7 @@ import {sidebarRightReducer} from "./sidebarRigth-reducer";
 import usersReducer from "./users-reducer";
 import authReducer, {UsersInitialStateType} from "./auth-reducer";
 import thunkMiddleware from "redux-thunk"
+import {appReducer} from "./app-reducer";
 
 type ContentAcType = {
     type: 'ADD-POST'
@@ -52,8 +53,13 @@ type StatusType = {
     status: string
 }
 
+type SetIsLoggedInAC = {
+    type: 'SET_IS_LOGGED_IN'
+    value: boolean
+}
+
 export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType
-    | ProfileACType | SetAuthUserDataAC | DisableButtonType | StatusType
+    | ProfileACType | SetAuthUserDataAC | DisableButtonType | StatusType | SetIsLoggedInAC
 
 let reducers = combineReducers({
     profilePage: profileReducer,
@@ -61,6 +67,7 @@ let reducers = combineReducers({
     sidebarRight: sidebarRightReducer,
     users: usersReducer,
     auth: authReducer,
+    app: appReducer,
 })
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

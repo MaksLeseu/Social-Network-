@@ -1,10 +1,10 @@
 import React from 'react';
-import store from "./Redux/redux-store";
+import store, {AppStateType} from "./Redux/redux-store";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Provider} from "react-redux";
+import {Provider, useSelector} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 import HeaderContainer from "./components/Header/HeaderContainer";
 

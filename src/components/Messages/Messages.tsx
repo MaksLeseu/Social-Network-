@@ -5,7 +5,6 @@ import {Dialogs} from "./NestedComponents/Dialogs/Dialogs";
 import {DialogLogic} from "./DialogLogic/DialogLogic";
 import {ChatLogic} from "./ChatLogic/ChatLogic";
 import {MessagesPropsType} from "./MessagesContainer";
-import {Navigate} from "react-router-dom";
 
 type UsersMessagesElementType = {
     id: string

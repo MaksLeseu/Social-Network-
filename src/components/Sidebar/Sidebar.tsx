@@ -8,10 +8,17 @@ import technologies from "../../img/sidebar/Technologies.svg";
 import advertising from "../../img/sidebar/advertising.svg";
 import React from "react";
 import './Sidebar.css'
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 export function Sidebar() {
+    const isAuth = useSelector<boolean>((state: any) => state.auth.isAuth)
+
+    if (!isAuth) {
+        return <Navigate to={'/login'} />
+    }
+
     return (
         <div className={'sidebar'}>
             <div className={'sidebarMenu'}>

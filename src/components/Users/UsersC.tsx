@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import s from "./UsersNested/UsersNested.module.css";
 import {UsersDataType} from "../../Redux/users-reducer";
 import logo1 from "../../img/logo1.png";
-import {Navigate, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {UserButton} from "./UsersNested/UserButton";
 
 type UsersCPropsType = {
@@ -14,7 +14,6 @@ type UsersCPropsType = {
     followingInProgress: any
     followTC: (id: string) => void
     unfollowTC: (id: string) => void
-    isAuth: boolean
 }
 
 const UsersC: FC<UsersCPropsType> = (props) => {

@@ -1,13 +1,16 @@
 import axios from "axios";
+import {LoginInType} from "../components/Login/Login";
 
 
 export const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
-        'API-KEY': '6c38e33f-71de-49e1-a68d-149628854242'
+        'API-KEY': '5fc11a34-7258-4926-8c00-91db4f940cfd'
     },
 })
+
+/*6c38e33f-71de-49e1-a68d-149628854242*/
 
 export const usersAPI = {
     getUsers(currentPage: any, pageSize: any) {
@@ -41,8 +44,14 @@ export const profileAPI = {
 }
 
 export const authAPI = {
-    loginIn() {
+    me() {
         return instance.get(`auth/me`)
+    },
+    loginIn(data: LoginInType) {
+        return instance.post(`auth/login`, data)
+    },
+    logOut() {
+        return instance.delete(`auth/login`)
     }
 }
 

@@ -6,45 +6,56 @@
     border: 1px #B2EAEE solid;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
     padding-top: 20px;
+    margin: 0 auto;
 }
 .login h1 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 20px;
     text-transform: uppercase;
 }
 
 .form {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .loginInput {
-    height: 30px;
+    width: 230px;
+    height: 40px;
     border: 1px #B2EAEE solid;
     border-radius: 5px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
     margin-bottom: 10px;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .passwordInput {
-    height: 30px;
+    width: 230px;
+    height: 40px;
     border: 1px #B2EAEE solid;
     border-radius: 5px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
     margin-bottom: 10px;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .checkboxInput {
     margin-bottom: 10px;
+    margin-right: 120px;
 }
 
 .buttonInput {
-    width: 50px;
+    width: 230px;
     height: 30px;
     background-color: #B2EAEE;
-    border: 1px black solid;
     border-radius: 5px;
-    font-weight: 700;
+    font-weight: 700 ;
+    text-transform: uppercase;
+    box-shadow: 1px 1px 3px black;
+}
+
+.buttonInput:hover {
+    background-color: #97cdd0;
 }

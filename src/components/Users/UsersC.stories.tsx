@@ -106,7 +106,6 @@ export const Example1 = (props: any) => {
                 followingInProgress={[]}
                 followTC={followTC}
                 unfollowTC={unfollowTC}
-                isAuth={false}
             />
         </BrowserRouter>
     )

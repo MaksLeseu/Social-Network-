@@ -1,6 +1,8 @@
 import {ActionsType} from "./redux-store";
 import {Dispatch} from "redux";
 import {authAPI} from "../api/api";
+import {LoginInType} from "../components/Login/Login";
+import {handleServerAppError} from "../common/error-utils";
 
 export type UsersInitialStateType = {
     id: string | null
@@ -28,6 +30,9 @@ const authReducer: AuthReducerType = (state= initialState , action) => {
                 isAuth: true
             }
         }
+        case 'SET_IS_LOGGED_IN': {
+            return {...state, isAuth: action.value}
+        }
 
         default: return state
     }
@@ -35,13 +40,33 @@ const authReducer: AuthReducerType = (state= initialState , action) => {
 
 export const setAuthUserDataAC = (id: string, email: string, login: string) =>
     ({type: 'SET_AUTH_USER_DATA', data: {id, email, login}})
+export const setIsLoggedInAC = (value: boolean) => ({type: 'SET_IS_LOGGED_IN', value})
 
-export const loginInTC = () => (dispatch: Dispatch) => {
-    authAPI.loginIn()
+export const meTC = () => (dispatch: Dispatch) => {
+    authAPI.me()
         .then(response => {
             if (response.data.resultCode === 0) {
                 let {id, email, login} = response.data.data
                 dispatch(setAuthUserDataAC(id, email , login))
+            }
+        })
+}
+
+export const loginInTC = (data: LoginInType) => (dispatch: Dispatch) => {
+    authAPI.loginIn(data)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setIsLoggedInAC(true))
+            } else {
+                handleServerAppError(response.data, dispatch)
+            }
+        })
+}
+export const logOutTC = () => (dispatch: Dispatch) => {
+    authAPI.logOut()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setIsLoggedInAC(false))
             }
         })
 }
