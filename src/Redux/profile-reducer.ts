@@ -8,15 +8,26 @@ export type PostType = {
     level: number
 }
 
+export type ProfileType = null |
+    {
+    aboutMe: null | string
+    contacts: {facebook: null | string, website: null | string, vk: null | string, twitter: null | string, instagram: null | string, github: null | string, mainLink: null | string, youtube: null | string}
+    fullName: string
+    lookingForAJob: boolean
+    lookingForAJobDescription: null | string
+    photos: {small: null | string, large: null | string}
+    userId: number
+}
+
 export type ContentInitialStateType = {
     posts: PostType[]
-    profile: any
+    profile: ProfileType
     status?: string
 }
 
 type ProfileReducerType = (state: ContentInitialStateType, action: ActionsType) => ContentInitialStateType
 
-type AddPostActionCreatorType = (state: string) => ActionsType
+export type AddPostActionCreatorType = (state: string) => ActionsType
 type SetUserProfileACType = (state: string) => ActionsType
 type SetStatusType = (state: string) => ActionsType
 

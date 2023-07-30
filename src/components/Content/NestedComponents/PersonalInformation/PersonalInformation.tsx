@@ -9,12 +9,13 @@ import React from "react";
 import './PersonalInformation.css'
 import {Status} from "../Status/Status";
 import logo1 from "../../../../img/logo1.png";
+import {ProfileType} from "../../../../Redux/profile-reducer";
 
 type PersonalInformationPropsType = {
-    img?: any
+    img?: null | string
     status: string
     updateStatus: any
-    profile: any
+    profile: ProfileType
 }
 
 

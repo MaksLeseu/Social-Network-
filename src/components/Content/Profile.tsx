@@ -18,9 +18,15 @@ import {ProfilePropsType} from "./ProfileContainer";
     )
 }*/
 
+type PostsElementsType = {
+    postsElements: JSX.Element[]
+    status: any
+}
 
-class Profile extends React.Component<ProfilePropsType> {
+
+class Profile extends React.Component<ProfilePropsType & PostsElementsType> {
     render() {
+        console.log(this.props.state.profile)
         return (
             <div className={'profile'}>{this.props.router.params.userId ?
                 <>

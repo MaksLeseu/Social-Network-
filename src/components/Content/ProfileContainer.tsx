@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    addPostActionCreator,
+    addPostActionCreator, AddPostActionCreatorType,
     ContentInitialStateType,
     getProfileTC, getStatusTC,
     setUserProfileAC, updateStatusTC
@@ -28,17 +28,18 @@ type MapDispatchProps = {
 }
 type PostsElementsType = any
 type ProfileContainerType = {
-    router: WithRouterType
+    router: any
     getProfileTC: (profileId: string) => void
     getStatusTC: (profileId: string) => void
     updateStatusTC: (status: string) => void
+    addPostActionCreator: AddPostActionCreatorType
 }
-export type ProfilePropsType = MapStatePropsType & MapDispatchProps & PostsElementsType & ProfileContainerType
+export type ProfilePropsType = MapStatePropsType & MapDispatchProps & ProfileContainerType
 
 class ProfileContainer extends React.Component<ProfilePropsType> {
 
     componentDidMount() {
-        let profileId: number = this.props.router.params.userId;
+        let profileId = this.props.router.params.userId;
         if (!profileId) {
             profileId = 28887
         }

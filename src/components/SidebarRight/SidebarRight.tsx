@@ -3,8 +3,6 @@ import './SidebarRight.css'
 import {Favorites} from "./Favorites/Favorites";
 import {SidebarRightPropsType} from "./ContainerSidebarRight";
 
-
-
 type favoritesElementType = {
     id: string
     personName: string
