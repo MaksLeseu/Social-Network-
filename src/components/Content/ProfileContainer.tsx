@@ -27,12 +27,18 @@ type MapDispatchProps = {
     setUserProfile: (profile: any) => void
 }
 type PostsElementsType = any
-export type ProfilePropsType = MapStatePropsType & MapDispatchProps & PostsElementsType
+type ProfileContainerType = {
+    router: WithRouterType
+    getProfileTC: (profileId: string) => void
+    getStatusTC: (profileId: string) => void
+    updateStatusTC: (status: string) => void
+}
+export type ProfilePropsType = MapStatePropsType & MapDispatchProps & PostsElementsType & ProfileContainerType
 
-class ProfileContainer extends React.Component<any> {
+class ProfileContainer extends React.Component<ProfilePropsType> {
 
     componentDidMount() {
-        let profileId = this.props.router.params.userId;
+        let profileId: number = this.props.router.params.userId;
         if (!profileId) {
             profileId = 28887
         }
@@ -84,6 +90,8 @@ function withRouter(Component: any) {
 
     return ComponentWithRouterProp;
 }
+
+type WithRouterType = ReturnType<typeof withRouter>
 
 // Вызов идет по "конвееру". В начале оборачивает withAuthRedirect -> withRouter -> затем connect
 export default compose(

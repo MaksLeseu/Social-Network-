@@ -6,8 +6,8 @@ import logo1 from '../../../img/logo1.png';
 type PostLogicPropsType = {
     message: string
     level: number
-    img: any
-    params: any
+    img: null | string
+    params: {userId: string}
 }
 
 export const PostLogic: FC<PostLogicPropsType> = (props) => {

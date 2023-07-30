@@ -20,7 +20,7 @@ export const Example1 = (props: any) => {
         profile: null
     }
 
-    let postsElements = initialState.posts.map((el: ElementPostsDataType) =>
+    /*let postsElements = initialState.posts.map((el: ElementPostsDataType) =>
         <PostLogic
             message={el.message}
             level={el.level}
@@ -28,5 +28,5 @@ export const Example1 = (props: any) => {
             img={false}
             params={false} />);
 
-    return <Posts postsElements={postsElements} />
+    return <Posts postsElements={postsElements} />*/
 }
