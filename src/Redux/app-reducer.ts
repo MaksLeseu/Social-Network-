@@ -4,7 +4,7 @@ type InitialStateType = {
 
 type ActionType = {
     type: 'SET_APP_ERROR'
-    error: string
+    error: string | null
 }
 
 const initialState: InitialStateType = {
@@ -21,4 +21,4 @@ export const appReducer = (state = initialState, action: ActionType) => {
     }
 }
 
-export const setAppErrorAC = (error: string): ActionType => ({type: 'SET_APP_ERROR', error})
+export const setAppErrorAC = (error: string | null): ActionType => ({type: 'SET_APP_ERROR', error})

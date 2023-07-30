@@ -27,13 +27,8 @@ const UsersC: FC<UsersCPropsType> = (props) => {
         }
     }
 
-    const followOnClick = (id: string) => {
-        props.followTC(id)
-    }
-
-    const unfollowOnClick = (id: string) => {
-        props.unfollowTC(id)
-    }
+    const followOnClick = (id: string) => props.followTC(id)
+    const unfollowOnClick = (id: string) => props.unfollowTC(id)
 
     return (
         <div className={s.container}>

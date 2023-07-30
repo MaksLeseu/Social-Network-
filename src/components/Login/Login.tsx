@@ -3,8 +3,7 @@ import s from './Login.module.css'
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
-import {loginInTC, logOutTC} from "../../Redux/auth-reducer";
-
+import {loginInTC} from "../../Redux/auth-reducer";
 type FormikErrorType = {
     email?: string
     password?: string
@@ -90,63 +89,3 @@ export const Login = () => {
     )
 }
 
-/*
-export const Login = () => {
-    const isAuth = useSelector<boolean>((state: any) => state.auth.isAuth)
-    const dispatch = useDispatch()
-    const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: '',
-            rememberMe: false,
-        },
-        onSubmit: values => {
-            // @ts-ignore
-            dispatch(loginInTC(values))
-            formik.resetForm()
-        }
-    })
-
-    console.log(isAuth)
-    if (isAuth) {
-        return <Navigate to={'/profile'} />
-    }
-
-    return (
-        <div className={s.login}>
-            <h1>Login</h1>
-            <form className={s.form} onSubmit={formik.handleSubmit}>
-                <div>
-                    <input
-                        className={s.loginInput}
-                        placeholder={'Email'}
-                        name={'email'}
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                    />
-                </div>
-                <div>
-                    <input
-                        className={s.passwordInput}
-                        type={'password'}
-                        placeholder={'Password'}
-                        name={'password'}
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                    />
-                </div>
-                <div className={s.checkboxInput}>
-                    <input
-                        type={'checkbox'}
-                        name={'rememberMe'}
-                        checked={formik.values.rememberMe}
-                        onChange={formik.handleChange}
-                    /> remember me
-                </div>
-                <div>
-                    <button className={s.buttonInput}>Login</button>
-                </div>
-            </form>
-        </div>
-    )
-}*/

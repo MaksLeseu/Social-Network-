@@ -14,17 +14,36 @@
     background-color: #B2EAEE;
     border-radius: 20px;
 }
+.sidebarMenu a.active img {
+    background-color: #B2EAEE;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+.sidebarMenu a.active p {
+    background-color: #B2EAEE;
+    border-radius: 20px;
+    padding-left: 5px;
+}
 
 .sidebar__menu-list {
     display: flex;
     margin-bottom: 14px;
     padding-top: 10px;
     padding-bottom: 10px;
+    transition: .5s;
 }
 .sidebar__menu-list:hover {
     transition: all 0.2s ease 0s;
     background-color: #B2EAEE;
     border-radius: 20px;
+}
+.sidebar__menu-list:hover img {
+    transition: .5s;
+    padding-left: 10px;
+}
+.sidebar__menu-list:hover p {
+    transition: .5s;
+    padding-left: 5px;
 }
 
 .sidebar__menu-list p {

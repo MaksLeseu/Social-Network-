@@ -12,7 +12,6 @@ import {ContainerSidebarRight} from "./components/SidebarRight/ContainerSidebarR
 import UsersContainer from "./components/Users/UsersContainer";
 import {Login} from "./components/Login/Login";
 import ProfileContainer from "./components/Content/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
 import {useSelector} from "react-redux";
 
 const App = () => {

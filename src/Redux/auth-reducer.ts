@@ -3,6 +3,7 @@ import {Dispatch} from "redux";
 import {authAPI} from "../api/api";
 import {LoginInType} from "../components/Login/Login";
 import {handleServerAppError} from "../common/error-utils";
+import {setAppErrorAC} from "./app-reducer";
 
 export type UsersInitialStateType = {
     id: string | null
@@ -57,6 +58,7 @@ export const loginInTC = (data: LoginInType) => (dispatch: Dispatch) => {
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(setIsLoggedInAC(true))
+                dispatch(setAppErrorAC(null))
             } else {
                 handleServerAppError(response.data, dispatch)
             }
@@ -70,5 +72,7 @@ export const logOutTC = () => (dispatch: Dispatch) => {
             }
         })
 }
+
+
 
 export default authReducer

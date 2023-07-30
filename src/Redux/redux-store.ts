@@ -61,7 +61,7 @@ type SetIsLoggedInAC = {
 export type ActionsType = ContentAcType | MessagesAcType | FollowAcType | UnfollowAcType | SetUsersAcType
     | ProfileACType | SetAuthUserDataAC | DisableButtonType | StatusType | SetIsLoggedInAC
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     profilePage: profileReducer,
     messages: messagesReducer,
     sidebarRight: sidebarRightReducer,
@@ -70,8 +70,8 @@ let reducers = combineReducers({
     app: appReducer,
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-export type AppStateType = ReturnType<typeof reducers>
+export type AppStateType = ReturnType<typeof rootReducer>
 
 export default store;
