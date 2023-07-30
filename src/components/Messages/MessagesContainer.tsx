@@ -4,7 +4,6 @@ import {addMessageActionCreator, MessagesInitialStateType} from "../../Redux/mes
 import {connect} from "react-redux";
 import {AppStateType} from "../../Redux/redux-store";
 import {compose, Dispatch} from "redux";
-import {UsersInitialStateType} from "../../Redux/auth-reducer";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 type MapStatePropsType = {
@@ -28,10 +27,11 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     }
 }
 
+export default compose(connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Messages)
+
 
 /*let AuthRedirectComponent = withAuthRedirect(Messages)
 
 export const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)*/
-export default compose(connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect
-)(Messages)

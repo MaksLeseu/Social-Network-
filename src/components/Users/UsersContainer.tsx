@@ -1,14 +1,11 @@
 import React from "react";
 import {connect} from "react-redux";
-import {
-    disableBtn,
-    followAC, followTC, getUsersTC,
-    setCurrentPage, unfollowAC, unfollowTC,
+import {followTC, getUsersTC,
+    setCurrentPage, unfollowTC,
     UsersDataType, UsersInitialStateType,
 } from "../../Redux/users-reducer";
 import UsersC from "./UsersC";
 import {Preloader} from "../../common/Preloader";
-import {Navigate} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {AppStateType} from "../../Redux/redux-store";

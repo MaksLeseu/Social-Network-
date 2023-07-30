@@ -10,7 +10,7 @@ import {useDispatch} from "react-redux";
 
 type HeaderPropsType = {
     isAuth: boolean
-    login: string
+    login: string | null
     logOutTC: any
 }
 
