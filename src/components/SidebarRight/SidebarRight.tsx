@@ -10,7 +10,7 @@ type favoritesElementType = {
 
 export const SidebarRight: FC<SidebarRightPropsType> = (props) => {
 
-    let favoritesElement = props.state.favorites.map((el: favoritesElementType) =>
+    let favoritesElement: JSX.Element[] = props.state.favorites.map((el: favoritesElementType) =>
         <Favorites personName={el.personName} key={el.id} /> )
 
     return (

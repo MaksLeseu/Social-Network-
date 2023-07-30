@@ -72,7 +72,6 @@ export const getProfileTC = (profileId: string) => (dispatch: Dispatch) => {
 export const getStatusTC = (profileId: string) => (dispatch: Dispatch) => {
     profileAPI.getStatus(profileId)
         .then(response => {
-            console.log(response.data)
             dispatch(setStatusAC(response.data))
         })
 }

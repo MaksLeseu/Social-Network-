@@ -75,3 +75,7 @@ let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 export type AppStateType = ReturnType<typeof rootReducer>
 
 export default store;
+
+// а это, чтобы можно было в консоли браузера обращаться к store в любой момент
+// @ts-ignore
+window.store = store;

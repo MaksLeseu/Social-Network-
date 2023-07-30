@@ -4,6 +4,8 @@ import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {loginInTC} from "../../Redux/auth-reducer";
+import {AppStateType} from "../../Redux/redux-store";
+
 type FormikErrorType = {
     email?: string
     password?: string
@@ -18,7 +20,7 @@ export type LoginInType = {
 
 export const Login = () => {
     const dispatch = useDispatch()
-    const isAuth = useSelector((state: any) => state.auth.isAuth)
+    const isAuth = useSelector<any>((state) => state.auth.isAuth)
     const formik = useFormik({
         initialValues: {
             email: '',

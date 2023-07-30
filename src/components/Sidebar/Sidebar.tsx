@@ -10,10 +10,10 @@ import React from "react";
 import './Sidebar.css'
 import {Navigate, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
-
+import {AppStateType} from "../../Redux/redux-store";
 
 export function Sidebar() {
-    const isAuth = useSelector<boolean>((state: any) => state.auth.isAuth)
+    const isAuth = useSelector<any>((state) => state.auth.isAuth)
 
     if (!isAuth) {
         return <Navigate to={'/login'} />
@@ -26,30 +26,37 @@ export function Sidebar() {
                     <img className={'sidebar__menu-icon'} src={user}/>
                     <p>Home page</p>
                 </NavLink>
+
                 <NavLink to={'/news'} className={'sidebar__menu-news sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={news}/>
                     <p>News</p>
                 </NavLink>
+
                 <NavLink to={'/users'} className={'sidebar__menu-acquaintance sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={acquaintance}/>
                     <p>Users</p>
                 </NavLink>
+
                 <NavLink to={'/acquaintance'} className={'sidebar__menu-acquaintance sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={acquaintance}/>
                     <p>Acquaintance</p>
                 </NavLink>
+
                 <NavLink to={'/messages'} className={'sidebar__menu-messages sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={messages}/>
                     <p>Messages</p>
                 </NavLink>
+
                 <NavLink to={'/settings'} className={'sidebar__menu-settings sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={settings}/>
                     <p>Settings</p>
                 </NavLink>
+
                 <NavLink to={'/developers'} className={'sidebar__menu-developers sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={developers}/>
                     <p>Developers</p>
                 </NavLink>
+
                 <NavLink to={'/technologies'} className={'sidebar__menu-technologies sidebar__menu-list'}>
                     <img className={'sidebar__menu-icon'} src={technologies}/>
                     <p>Technologies</p>

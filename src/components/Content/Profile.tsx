@@ -26,7 +26,6 @@ type PostsElementsType = {
 
 class Profile extends React.Component<ProfilePropsType & PostsElementsType> {
     render() {
-        console.log(this.props.state.profile)
         return (
             <div className={'profile'}>{this.props.router.params.userId ?
                 <>
