@@ -95,7 +95,7 @@ function withRouter(Component: any) {
 type WithRouterType = ReturnType<typeof withRouter>
 
 // Вызов идет по "конвееру". В начале оборачивает withAuthRedirect -> withRouter -> затем connect
-export default compose(
+export default compose<React.ComponentType>(
     withRouter,
     connect(mapStateToProps, {addPostActionCreator, setUserProfileAC, getProfileTC, getStatusTC, updateStatusTC}),
     withAuthRedirect

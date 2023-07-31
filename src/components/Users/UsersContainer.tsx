@@ -64,7 +64,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     }
 }
 
-export default compose(
+export default compose<React.ComponentType>(
     // The connect returns a container component.
     connect(mapStateToProps,
         {setCurrentPage, getUsersTC,

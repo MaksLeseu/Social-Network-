@@ -18,4 +18,4 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     }
 }
 
-export const ContainerSidebarRight = compose(connect(mapStateToProps), withAuthRedirect)(SidebarRight)
+export const ContainerSidebarRight = compose<React.ComponentType>(connect(mapStateToProps), withAuthRedirect)(SidebarRight)
