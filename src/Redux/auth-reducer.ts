@@ -21,7 +21,7 @@ let initialState: UsersInitialStateType = {
     isAuth: false,
 }
 
-const authReducer: AuthReducerType = (state: UsersInitialStateType = initialState , action: ActionsType) => {
+const authReducer: AuthReducerType = (state: UsersInitialStateType = initialState , action: ActionsType): UsersInitialStateType => {
 
     switch (action.type) {
         case 'SET_AUTH_USER_DATA': {
@@ -52,7 +52,6 @@ export const meTC = () => (dispatch: Dispatch) => {
             }
         })
 }
-
 export const loginInTC = (data: LoginInType) => (dispatch: Dispatch) => {
     authAPI.loginIn(data)
         .then(response => {

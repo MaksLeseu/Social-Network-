@@ -65,6 +65,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
 }
 
 export default compose(
+    // The connect returns a container component.
     connect(mapStateToProps,
         {setCurrentPage, getUsersTC,
             followTC, unfollowTC}),
