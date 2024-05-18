@@ -62,8 +62,8 @@ const UsersC: FC<UsersCPropsType> = (props) => {
                                 <div className={s.status}>{u.status}</div>
                             </div>
                             <div className={s.live}>
-                                <div>Molo</div>
-                                <div>Huligans</div>
+                                <div>Kielce</div>
+                                <div>Poland</div>
                             </div>
                         </div>
                     </div>
