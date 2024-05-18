@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/social-network/static/css/main.cf0d527e.css",
-    "main.js": "/social-network/static/js/main.9fd2f61d.js",
+    "main.css": "/social-network/static/css/main.e2c45fd3.css",
+    "main.js": "/social-network/static/js/main.8576b917.js",
     "static/js/111.ac7c4db3.chunk.js": "/social-network/static/js/111.ac7c4db3.chunk.js",
     "static/media/advertising.svg": "/social-network/static/media/advertising.b79066848dd7cee00cb688cc5e951e0c.svg",
-    "static/media/account-icon.jpg": "/social-network/static/media/account-icon.23bea76ad441cdc202ab.jpg",
+    "static/media/account-icon.jpg": "/social-network/static/media/account-icon.5a6edf107cdf9878bc35.jpg",
     "static/media/logo1.png": "/social-network/static/media/logo1.417c7ab647bd83faa44f.png",
     "static/media/Favorites1.svg": "/social-network/static/media/Favorites1.278790488a9d63dff6d8a6500b8d4443.svg",
     "static/media/logo5.png": "/social-network/static/media/logo5.3d014461f6f178b82e8d.png",
@@ -28,12 +28,12 @@
     "static/media/Stroke.svg": "/social-network/static/media/Stroke.2946dacf04732e7614099c293261e677.svg",
     "static/media/mail.svg": "/social-network/static/media/mail.80f4c453aaa9aa5126cd6545cc0a2cdc.svg",
     "static/media/message.svg": "/social-network/static/media/message.5116240c0b759a1c6d51d4266ef10d1b.svg",
-    "main.cf0d527e.css.map": "/social-network/static/css/main.cf0d527e.css.map",
-    "main.9fd2f61d.js.map": "/social-network/static/js/main.9fd2f61d.js.map",
+    "main.e2c45fd3.css.map": "/social-network/static/css/main.e2c45fd3.css.map",
+    "main.8576b917.js.map": "/social-network/static/js/main.8576b917.js.map",
     "111.ac7c4db3.chunk.js.map": "/social-network/static/js/111.ac7c4db3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf0d527e.css",
-    "static/js/main.9fd2f61d.js"
+    "static/css/main.e2c45fd3.css",
+    "static/js/main.8576b917.js"
   ]
 }
